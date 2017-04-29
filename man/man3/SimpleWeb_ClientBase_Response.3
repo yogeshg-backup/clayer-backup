@@ -1,0 +1,62 @@
+.TH "SimpleWeb::ClientBase< socket_type >::Response" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleWeb::ClientBase< socket_type >::Response \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <client_http\&.hpp>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::string \fBhttp_version\fP"
+.br
+.ti -1c
+.RI "std::string \fBstatus_code\fP"
+.br
+.ti -1c
+.RI "std::istream \fBcontent\fP"
+.br
+.ti -1c
+.RI "std::unordered_multimap
+.br
+< std::string, std::string, 
+.br
+\fBcase_insensitive_hash\fP, 
+.br
+\fBcase_insensitive_equals\fP > \fBheader\fP"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBClientBase< socket_type >\fP"
+.br
+.ti -1c
+.RI "class \fBClient< socket_type >\fP"
+.br
+.in -1c
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "template<class socket_type> friend class \fBClient\fP< socket_type >\fC [friend]\fP"
+
+.SS "template<class socket_type> friend class \fBClientBase\fP< socket_type >\fC [friend]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "template<class socket_type> std::istream \fBSimpleWeb::ClientBase\fP< socket_type >::Response::content"
+
+.SS "template<class socket_type> std::unordered_multimap<std::string, std::string, \fBcase_insensitive_hash\fP, \fBcase_insensitive_equals\fP> \fBSimpleWeb::ClientBase\fP< socket_type >::Response::header"
+
+.SS "template<class socket_type> std::string \fBSimpleWeb::ClientBase\fP< socket_type >::Response::http_version"
+
+.SS "template<class socket_type> std::string \fBSimpleWeb::ClientBase\fP< socket_type >::Response::status_code"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Clayer from the source code\&.

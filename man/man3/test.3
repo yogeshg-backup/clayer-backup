@@ -42,7 +42,6 @@ Tiny test suite application that associates test procedures with labels and repo
 .br
 \fBprop_stat\fP, prop_msg > \fBTestLogger\fP (std::cout)"
 .br
-.RI "\fICorresponding logger for test output\&. \fP"
 .ti -1c
 .RI "template<Testable F> \fBTest\fP< F > \fBmake\fP (const std::string &desc, const F &test)"
 .br
@@ -52,13 +51,12 @@ Tiny test suite application that associates test procedures with labels and repo
 
 .in +1c
 .ti -1c
-.RI "constexpr const char \fBmin_fmt\fP [] = ')'"
+.RI "constexpr const char \fBmin_fmt\fP [] = R'([%] % - '%')'"
 .br
-.RI "\fIFormat for test output\&. \fP"
+.RI "\fIFormat and corresponding logger TestLogger for test output\&. \fP"
 .ti -1c
-.RI "concept bool \fBTestable\fP"
+.RI "template<typename T > concept bool \fBTestable\fP"
 .br
-.RI "\fISomething is Testable in the context of our library if it can report success/failure through a function call\&. \fP"
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -66,19 +64,22 @@ Tiny test suite application that associates test procedures with labels and repo
 .SH "Enumeration Type Documentation"
 .PP 
 .SS "enum \fBtest::Status\fP"
+
 .PP
-\fBEnumerator: \fP
+\fBEnumerator\fP
 .in +1c
 .TP
 \fB\fIPASS \fP\fP
 .TP
 \fB\fIFAIL \fP\fP
-
 .SH "Function Documentation"
 .PP 
-.SS "template<Testable F> \fBTest\fP<F> \fBtest::make\fP (const std::string &desc, const F &test)"
+.SS "template<Testable F> \fBTest\fP<F> test::make (const std::string &desc, const F &test)"
+
 .PP
-Helper function for creating a test without specifying the procedure type\&. \fBParameters:\fP
+Helper function for creating a test without specifying the procedure type\&. 
+.PP
+\fBParameters:\fP
 .RS 4
 \fIdesc\fP The test description\&. 
 .br
@@ -91,29 +92,31 @@ The constructed \fBTest\fP\&.
 .RE
 .PP
 
-.SS "template<typename Stream > void \fBtest::prop_stat\fP (Stream &o, const \fBLine\fP &l)"
+.SS "template<typename Stream > void test::prop_stat (Stream &o, const \fBLine\fP &l)"
+
 .PP
 A custom Prop that repurposes the info level to report the success status of the test associated with the log\&. 
-.SS "template<typename Stream > void \fBtest::prop_testno\fP (Stream &o, const \fBLine\fP &l)"
+.SS "template<typename Stream > void test::prop_testno (Stream &o, const \fBLine\fP &l)"
+
 .PP
 A custom Prop that prints out the fraction of passing tests so far by keeping an internal counter\&. 
-.SS "\fBLogger\fP<std::ostream, NOTSET, \fBmin_fmt\fP, \fBprop_testno\fP, \fBprop_stat\fP, prop_msg> \fBtest::TestLogger\fP (std::cout)"
-.PP
-Corresponding logger for test output\&. 
+.SS "\fBLogger\fP<std::ostream, NOTSET, \fBmin_fmt\fP, \fBprop_testno\fP, \fBprop_stat\fP, prop_msg> test::TestLogger (std::cout)"
+
 .SH "Variable Documentation"
 .PP 
-.SS "constexpr const char \fBtest::min_fmt\fP[] = ')'"
+.SS "constexpr const char test::min_fmt[] = R'([%] % - '%')'"
+
 .PP
-Format for test output\&. 
-.SS "concept bool \fBtest::Testable\fP"\fBInitial value:\fP
+Format and corresponding logger TestLogger for test output\&. 
+.SS "template<typename T > concept bool test::Testable"
+\fBInitial value:\fP
 .PP
 .nf
- requires (T t) {
+= requires (T t) {
+  { t() } -> bool;
   { std::is_convertible<decltype(t()), bool>::value == true };
 }
 .fi
-.PP
-Something is Testable in the context of our library if it can report success/failure through a function call\&. 
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Clayer from the source code\&.

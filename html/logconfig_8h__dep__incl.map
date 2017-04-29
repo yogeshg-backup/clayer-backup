@@ -1,7 +1,8 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$tests_8h.html" title="/home/travis/build/yogeshg/clayer/include/tests.h" alt="" coords="5,83,312,112"/>
-<area shape="rect" id="node5" href="$tests_8cpp.html" title="/home/travis/build/yogeshg/clayer/src/tests.cpp" alt="" coords="105,160,401,189"/>
-<area shape="rect" id="node7" href="$analyser__test_8cpp.html" title="/home/travis/build/yogeshg/clayer/src/analyser_test.cpp" alt="" coords="387,83,733,112"/>
-<area shape="rect" id="node9" href="$atm_8cpp.html" title="/home/travis/build/yogeshg/clayer/src/atm.cpp" alt="" coords="757,83,1048,112"/>
-<area shape="rect" id="node11" href="$performance__test_8cpp.html" title="/home/travis/build/yogeshg/clayer/src/performance_test.cpp" alt="" coords="1072,83,1440,112"/>
+<map id="/home/travis/build/yogeshg/clayer/include/logconfig.h" name="/home/travis/build/yogeshg/clayer/include/logconfig.h">
+<area shape="rect" id="node2" href="$tests_8h.html" title="/home/travis/build\l/yogeshg/clayer/include\l/tests.h" alt="" coords="5,109,163,165"/>
+<area shape="rect" id="node3" href="$tests_8cpp.html" title="/home/travis/build\l/yogeshg/clayer/src\l/tests.cpp" alt="" coords="75,213,209,269"/>
+<area shape="rect" id="node4" href="$analyser__test_8cpp.html" title="/home/travis/build\l/yogeshg/clayer/src\l/analyser_test.cpp" alt="" coords="239,109,373,165"/>
+<area shape="rect" id="node5" href="$atm_8cpp.html" title="/home/travis/build\l/yogeshg/clayer/src\l/atm.cpp" alt="" coords="399,109,533,165"/>
+<area shape="rect" id="node6" href="$performance__test_8cpp.html" title="/home/travis/build\l/yogeshg/clayer/src\l/performance_test.cpp" alt="" coords="559,109,711,165"/>
+<area shape="rect" id="node7" href="$http__examples_8cpp.html" title="/home/travis/build\l/yogeshg/clayer/test\l/server/http_examples.cpp" alt="" coords="735,109,911,165"/>
 </map>

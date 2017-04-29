@@ -1,0 +1,55 @@
+.TH "md__home_travis_build_yogeshg_clayer_docs_old_notes_20170414" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__home_travis_build_yogeshg_clayer_docs_old_notes_20170414 \- Concurrency 
+
+.IP "\(bu" 2
+We need to allow different threads to be able to log to the log file
+.IP "\(bu" 2
+One solution for this is to make the log record atomic
+.IP "  \(bu" 4
+only 1 thread can make a log at a given time\&.
+.PP
+.PP
+``` c++ thread1: \fBLOG()\fP << 'This is some log\&. Value: ' << value;
+.PP
+thread2: \fBLOG()\fP << 'This is a different log\&. Value: ' << value;
+.PP
+// expected log: // runner\&.cpp : line 101 (thread1) : This is some log\&. Value: 1001 // runner\&.cpp : line 201 (thread2) : This is a different log\&. Value: 2001 ```
+.IP "  \(bu" 4
+if we do not introduce any atomic actions, then both the threads can attempt to write to the same underlying stream object and this can cause errors
+.IP "  \(bu" 4
+if we make every stream operation atomic we have 4 operations in the above sample:
+.PP
+.PP
+``` c++ thread 1: { auto u1 = \fBLOG()\fP << 'This is some log\&. Value: '; u1 << value; } thread 2: { auto u2 = \fBLOG()\fP << 'This is a different log\&. Value: '; u2 << value; } ```
+.IP "  \(bu" 4
+This could potentially lead to a log like:
+.PP
+.PP
+``` c++ // runner\&.cpp : line 101 (thread1) : This is some log\&. Value: runner\&.cpp : line 201 (thread2) : This is a different log\&. Value: 1001 // 2001 ```
+.IP "  \(bu" 4
+Therefore a thread needs to hold a lock for the duration it is working a log record\&.
+.IP "  \(bu" 4
+This version 1\&.0
+.PP
+
+.IP "\(bu" 2
+This is not ideal since threads will have to wait for other threads for logging a message
+.IP "  \(bu" 4
+Ideally we would want the log operation to be non blocking\&.
+.IP "  \(bu" 4
+Solution: Every thread can create a log record simultaneously and a LogRecord is pushed to a thread safe queue by multiple producers\&. These records are then consumed by a single thread to write to a LogFile\&.
+.IP "  \(bu" 4
+This is our version 1\&.2
+.PP
+
+.IP "\(bu" 2
+An ideal solution for this problem would be that each producer writes to a local queue and a consumer checks each of these queues and writes the minimum timestamp log record to a file in each iteration\&.
+.IP "  \(bu" 4
+This solution is beyond the scope of the project\&. 
+.PP
+
+.PP
+

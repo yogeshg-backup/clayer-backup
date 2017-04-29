@@ -19,7 +19,7 @@ Parses a log file into log records and also provides a set of states if required
 .br
 .RI "\fIReads log properties from a file according to the log format regex supplied\&. \fP"
 .ti -1c
-.RI "std::set< LogRecord::State > \fBget_states\fP ()"
+.RI "std::set< \fBLogRecord::State\fP > \fBget_states\fP ()"
 .br
 .RI "\fIcreates a set of states identified in the log records \fP"
 .in -1c
@@ -28,17 +28,23 @@ Parses a log file into log records and also provides a set of states if required
 Parses a log file into log records and also provides a set of states if required\&. 
 .SH "Member Function Documentation"
 .PP 
-.SS "std::set<LogRecord::State> \fBclayer::analyser::Parser::get_states\fP ()\fC [inline]\fP"
+.SS "std::set<\fBLogRecord::State\fP> clayer::analyser::Parser::get_states ()\fC [inline]\fP"
+
 .PP
-creates a set of states identified in the log records \fBReturns:\fP
+creates a set of states identified in the log records 
+.PP
+\fBReturns:\fP
 .RS 4
 the set thus created 
 .RE
 .PP
 
-.SS "template<log_properties\&.\&.\&. I> const std::vector<\fBLogRecord\fP>& \fBclayer::analyser::Parser::read_file\fP (std::stringfilename, std::regexlog_format)\fC [inline]\fP"
+.SS "template<log_properties\&.\&.\&. I> const std::vector<\fBLogRecord\fP>& clayer::analyser::Parser::read_file (std::stringfilename, std::regexlog_format)\fC [inline]\fP"
+
 .PP
-Reads log properties from a file according to the log format regex supplied\&. \fBParameters:\fP
+Reads log properties from a file according to the log format regex supplied\&. 
+.PP
+\fBParameters:\fP
 .RS 4
 \fIfilename\fP name of the file to read from 
 .br

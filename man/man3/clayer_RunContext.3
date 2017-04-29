@@ -15,7 +15,7 @@ Log properties that are inferred when the code is run \&.
 
 .in +1c
 .ti -1c
-.RI "\fBRunContext\fP ()"
+.RI "\fBRunContext\fP ()=default"
 .br
 .RI "\fIdefault constructs all the members \fP"
 .ti -1c
@@ -23,7 +23,7 @@ Log properties that are inferred when the code is run \&.
 .br
 .RI "\fIConstructs the members from explicitly given values\&. \fP"
 .ti -1c
-.RI "\fBdecltype\fP (auto) tie() const "
+.RI "decltype(auto) \fBtie\fP () const "
 .br
 .RI "\fIReturns a tuple of all the members\&. \fP"
 .ti -1c
@@ -51,12 +51,16 @@ Log properties that are inferred when the code is run \&.
 These can be used to answer 'when' in the runtime was the log generated\&. 
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "\fBclayer::RunContext::RunContext\fP ()"
+.SS "clayer::RunContext::RunContext ()\fC [default]\fP"
+
 .PP
 default constructs all the members 
-.SS "\fBclayer::RunContext::RunContext\fP (const std::string &a, const std::string &b, const std::string &c)\fC [inline]\fP"
+.SS "clayer::RunContext::RunContext (const std::string &a, const std::string &b, const std::string &c)\fC [inline]\fP"
+
 .PP
-Constructs the members from explicitly given values\&. \fBParameters:\fP
+Constructs the members from explicitly given values\&. 
+.PP
+\fBParameters:\fP
 .RS 4
 \fIa\fP date 
 .br
@@ -68,17 +72,8 @@ Constructs the members from explicitly given values\&. \fBParameters:\fP
 
 .SH "Member Function Documentation"
 .PP 
-.SS "\fBclayer::RunContext::decltype\fP (auto) const\fC [inline]\fP"
-.PP
-Returns a tuple of all the members\&. This returns a serialisable representation that can be used to print or order this class
-.PP
-\fBReturns:\fP
-.RS 4
-a tuple with all the constituents 
-.RE
-.PP
-
 .SS "bool clayer::RunContext::operator< (const \fBRunContext\fP &rhs) const\fC [inline]\fP"
+
 .PP
 Compares two \fBRunContext\fP using their tuple representation\&. first compares date, if same then compare function thread, if same then time\&.
 .PP
@@ -93,11 +88,25 @@ if the lhs is smaller than the rhs\&.
 .RE
 .PP
 
+.SS "decltype(auto) clayer::RunContext::tie () const\fC [inline]\fP"
+
+.PP
+Returns a tuple of all the members\&. This returns a serialisable representation that can be used to print or order this class
+.PP
+\fBReturns:\fP
+.RS 4
+a tuple with all the constituents 
+.RE
+.PP
+
 .SH "Member Data Documentation"
 .PP 
-.SS "std::string \fBclayer::RunContext::date\fP"
-.SS "std::string \fBclayer::RunContext::thread\fP"
-.SS "std::string \fBclayer::RunContext::time\fP"
+.SS "std::string clayer::RunContext::date"
+
+.SS "std::string clayer::RunContext::thread"
+
+.SS "std::string clayer::RunContext::time"
+
 
 .SH "Author"
 .PP 
