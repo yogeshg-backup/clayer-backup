@@ -31,7 +31,14 @@
 
 .in +1c
 .ti -1c
-.RI "namespace \fBclayer::logger\fP"
+.RI "\fBlogger\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "using \fBlogger::MyLogger\fP = Logger< std::ostringstream, DEBUG, my_format, prop_time, prop_level, prop_thread, prop_file, prop_func, prop_line, prop_msg >"
 .br
 .in -1c
 .SS "Functions"
@@ -60,20 +67,25 @@
 
 .in +1c
 .ti -1c
-.RI "constexpr const char \fBclayer::logger::my_format\fP [] = '[%] %[%:%(%:%)]: [%]'"
+.RI "constexpr const char \fBlogger::my_format\fP [] = '[%] %[%:%(%:%)]: [%]'"
 .br
 .in -1c
 .SH "Function Documentation"
 .PP 
-.SS "int \fBmain\fP ()"
-.SS "void \fBtest_analyse\fP ()"
-.SS "void \fBtest_basic\fP ()"
+.SS "int main ()"
+
+.SS "void test_analyse ()"
+
+.SS "void test_basic ()"
+
 .PP
 Basic sanity checks for the logging library and static thresholds\&. 
-.SS "void \fBtest_format\fP ()"
+.SS "void test_format ()"
+
 .PP
 Tests for correctness of the formatting and substitution procedure\&. 
-.SS "void \fBtest_props\fP ()"
+.SS "void test_props ()"
+
 .PP
 Tests for correctness of the Prop functions that output contextual information\&. 
 .SH "Author"

@@ -31,8 +31,11 @@ A simple class to represent a unit test\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "template<Testable F> \fBtest::Test\fP< F >::\fBTest\fP (const std::string &desc, const F &test)\fC [inline]\fP"
+
 .PP
-Constructs the test from a description and a procedure\&. \fBParameters:\fP
+Constructs the test from a description and a procedure\&. 
+.PP
+\fBParameters:\fP
 .RS 4
 \fIdesc\fP The description of the test\&. 
 .br
@@ -43,6 +46,7 @@ Constructs the test from a description and a procedure\&. \fBParameters:\fP
 .SH "Member Function Documentation"
 .PP 
 .SS "template<Testable F> void \fBtest::Test\fP< F >::operator() ()\fC [inline]\fP"
+
 .PP
 Runs the test and reports using our logger if it passed or failed\&. 
 
