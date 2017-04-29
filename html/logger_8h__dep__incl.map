@@ -1,10 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$logconfig_8h.html" title="/home/travis/build/yogeshg/clayer/include/logconfig.h" alt="" coords="740,83,1068,112"/>
-<area shape="rect" id="node5" href="$tests_8h.html" title="/home/travis/build/yogeshg/clayer/include/tests.h" alt="" coords="349,160,656,189"/>
-<area shape="rect" id="node7" href="$tests_8cpp.html" title="/home/travis/build/yogeshg/clayer/src/tests.cpp" alt="" coords="354,237,650,267"/>
-<area shape="rect" id="node9" href="$_r_e_a_d_m_e_8md.html" title="/home/travis/build/yogeshg/clayer/README.md" alt="" coords="24,160,325,189"/>
-<area shape="rect" id="node13" href="$atm_8cpp.html" title="/home/travis/build/yogeshg/clayer/src/atm.cpp" alt="" coords="1101,160,1392,189"/>
-<area shape="rect" id="node15" href="$performance__test_8cpp.html" title="/home/travis/build/yogeshg/clayer/src/performance_test.cpp" alt="" coords="1416,160,1784,189"/>
-<area shape="rect" id="node18" href="$http__examples_8cpp.html" title="/home/travis/build/yogeshg/clayer/test/server/http_examples.cpp" alt="" coords="1808,160,2205,189"/>
-<area shape="rect" id="node11" href="$analyser__test_8cpp.html" title="/home/travis/build/yogeshg/clayer/src/analyser_test.cpp" alt="" coords="730,160,1077,189"/>
+<area shape="rect" id="node3" href="$logconfig_8h.html" title="/home/travis/build/yogeshg/clayer/include/logconfig.h" alt="" coords="416,83,744,112"/>
+<area shape="rect" id="node5" href="$tests_8h.html" title="/home/travis/build/yogeshg/clayer/include/tests.h" alt="" coords="26,160,332,189"/>
+<area shape="rect" id="node7" href="$tests_8cpp.html" title="/home/travis/build/yogeshg/clayer/src/tests.cpp" alt="" coords="31,237,327,267"/>
+<area shape="rect" id="node11" href="$atm_8cpp.html" title="/home/travis/build/yogeshg/clayer/src/atm.cpp" alt="" coords="778,160,1068,189"/>
+<area shape="rect" id="node13" href="$performance__test_8cpp.html" title="/home/travis/build/yogeshg/clayer/src/performance_test.cpp" alt="" coords="1092,160,1460,189"/>
+<area shape="rect" id="node9" href="$analyser__test_8cpp.html" title="/home/travis/build/yogeshg/clayer/src/analyser_test.cpp" alt="" coords="407,160,754,189"/>
 </map>

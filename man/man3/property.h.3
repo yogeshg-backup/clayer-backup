@@ -99,14 +99,14 @@
 .RI "template<StringRef PS, log_properties head, log_properties\&.\&.\&. I> void \fBclayer::read_props\fP (LogRecord &p, PS ps)"
 .br
 .ti -1c
-.RI "template<log_properties\&.\&.\&. I> void \fBclayer::parse_props\fP (LogRecord &p, std::string &\fBline\fP, std::regex format_regex=std::regex('(\&.*)\\\\((\&.*):(\&.*)\\\\):(\&.*)'))"
+.RI "template<log_properties\&.\&.\&. I> void \fBclayer::parse_props\fP (LogRecord &p, std::string &line, std::regex format_regex=std::regex('(\&.*)\\\\((\&.*):(\&.*)\\\\):(\&.*)'))"
 .br
 .RI "\fIreads all the properties into a log record p from a string s \fP"
 .ti -1c
-.RI "template<log_properties prop> \fBclayer::decltype\fP (auto) \fBget_prop\fP(const LogRecord &rec)"
+.RI "template<log_properties prop> \fBclayer::decltype\fP (auto) get_prop(const LogRecord &rec)"
 .br
 .ti -1c
-.RI "template<> \fBclayer::decltype\fP (auto) \fBget_prop\fP< FILE >(const LogRecord &rec)"
+.RI "template<> \fBclayer::decltype\fP (auto) get_prop< FILE >(const LogRecord &rec)"
 .br
 .ti -1c
 .RI "template<typename T  = void> std::ostream & \fBclayer::get_props\fP (std::ostream &, const LogRecord &)"

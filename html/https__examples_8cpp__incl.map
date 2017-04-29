@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$server__https_8hpp.html" title="server_https.hpp" alt="" coords="1163,83,1280,112"/>
-<area shape="rect" id="node33" href="$client__https_8hpp.html" title="client_https.hpp" alt="" coords="897,83,1012,112"/>
-<area shape="rect" id="node62" href="$crypto_8hpp.html" title="crypto.hpp" alt="" coords="1559,83,1641,112"/>
-<area shape="rect" id="node5" href="$server__http_8hpp.html" title="server_http.hpp" alt="" coords="1165,160,1277,189"/>
-<area shape="rect" id="node35" href="$client__http_8hpp.html" title="client_http.hpp" alt="" coords="497,160,604,189"/>
-</map>
