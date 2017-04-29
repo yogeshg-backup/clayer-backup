@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['stream',['Stream',['../classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506',1,'logger::Logger']]],
-  ['streamable',['Streamable',['../namespacelogger.html#a80233f8eaec1bd67fe2686a6c9edc776',1,'logger::Streamable()'],['../namespaceclayer.html#a5e4134cea2e11c8300f93718e196e06e',1,'clayer::Streamable()']]],
+  ['stream',['Stream',['../classclayer_1_1logger_1_1_logger.html#a9302f1ba0e49a121f3fce3302922bdd2',1,'clayer::logger::Logger']]],
+  ['streamable',['Streamable',['../namespaceclayer_1_1logger.html#a5b347f101c9fe4ca968c0c21b61d6e44',1,'clayer::logger::Streamable()'],['../namespaceclayer.html#a5e4134cea2e11c8300f93718e196e06e',1,'clayer::Streamable()']]],
   ['stringref',['StringRef',['../namespaceclayer.html#aa1a0d23ad523777a9592a9507f475b18',1,'clayer']]]
 ];

@@ -111,46 +111,47 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlogger_1_1_context_info.html">logger::ContextInfo</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A plain-old-data container for the fixed code context of a log record. Necessary to propagate context information from the predefined macros. Auxiliary, short-lived class with life-time the duration of the log command.  <a href="structlogger_1_1_context_info.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlogger_1_1_line.html">logger::Line</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A structure representing all the information about a particular logging line. Includes contextual and message information.  <a href="structlogger_1_1_line.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogger_1_1hash_1_1_flag.html">logger::hash::Flag&lt; Val &gt;</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Template class for template overloading hash settings in logger stream operators.  <a href="classlogger_1_1hash_1_1_flag.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogger_1_1_record.html">logger::Record&lt; fmt, Stream, props &gt;</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A catch-all class for storing a log line record and printing it according to a format.  <a href="classlogger_1_1_record.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogger_1_1_no_record.html">logger::NoRecord</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A record that eats and throws away objects streamed to it. Used for compile-time filtering. Can also be used as a no-op streamer.  <a href="classlogger_1_1_no_record.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogger_1_1_logger.html">logger::Logger&lt; Stream, threshold, fmt, props &gt;</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The wrapper/aggregator class for logging commands. Template-parameterized by format and logging threshold for compile-time configuration.  <a href="classlogger_1_1_logger.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclayer_1_1logger_1_1_context_info.html">clayer::logger::ContextInfo</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A plain-old-data container for the fixed code context of a log record. Necessary to propagate context information from the predefined macros. Auxiliary, short-lived class with life-time the duration of the log command.  <a href="structclayer_1_1logger_1_1_context_info.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclayer_1_1logger_1_1_line.html">clayer::logger::Line</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A structure representing all the information about a particular logging line. Includes contextual and message information.  <a href="structclayer_1_1logger_1_1_line.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclayer_1_1logger_1_1hash_1_1_flag.html">clayer::logger::hash::Flag&lt; Val &gt;</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Template class for template overloading hash settings in logger stream operators.  <a href="classclayer_1_1logger_1_1hash_1_1_flag.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclayer_1_1logger_1_1_record.html">clayer::logger::Record&lt; fmt, Stream, props &gt;</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A catch-all class for storing a log line record and printing it according to a format.  <a href="classclayer_1_1logger_1_1_record.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclayer_1_1logger_1_1_no_record.html">clayer::logger::NoRecord</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A record that eats and throws away objects streamed to it. Used for compile-time filtering. Can also be used as a no-op streamer.  <a href="classclayer_1_1logger_1_1_no_record.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclayer_1_1logger_1_1_logger.html">clayer::logger::Logger&lt; Stream, threshold, fmt, props &gt;</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The wrapper/aggregator class for logging commands. Template-parameterized by format and logging threshold for compile-time configuration.  <a href="classclayer_1_1logger_1_1_logger.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelogger.html">logger</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelogger_1_1hash.html">logger::hash</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclayer.html">clayer</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclayer_1_1logger.html">clayer::logger</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclayer_1_1logger_1_1hash.html">clayer::logger::hash</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Functionality related to specifying if a component of a log message should influence the hash of the message or not. </p>
 <br/></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename Stream &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelogger.html#ad1434b8d74f2370c46afdaf5e671dd70">logger::prop_msg</a> (Stream &amp;o, const Line &amp;l)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A Prop that prints the message component to a log stream.  <a href="#ad1434b8d74f2370c46afdaf5e671dd70"></a><br/></td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceclayer_1_1logger.html#acbf50e9be10132661e302f6edab4f7de">clayer::logger::prop_msg</a> (Stream &amp;o, const Line &amp;l)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A Prop that prints the message component to a log stream.  <a href="#acbf50e9be10132661e302f6edab4f7de"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename Stream &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelogger.html#a415b7c6ed34d3556ab2794b5b8a4d248">logger::prop_hash</a> (Stream &amp;o, const Line &amp;l)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A Prop that prints the hash identifier in hexadecimal of a log to a log stream.  <a href="#a415b7c6ed34d3556ab2794b5b8a4d248"></a><br/></td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceclayer_1_1logger.html#ae17008e68b9cd7d44ac411f1116c22e7">clayer::logger::prop_hash</a> (Stream &amp;o, const Line &amp;l)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A Prop that prints the hash identifier in hexadecimal of a log to a log stream.  <a href="#ae17008e68b9cd7d44ac411f1116c22e7"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename Stream &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelogger.html#af63496442bb5ef6610424dc2570418d0">logger::prop_func</a> (Stream &amp;o, const Line &amp;l)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A Prop that prints the function name to a log stream.  <a href="#af63496442bb5ef6610424dc2570418d0"></a><br/></td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceclayer_1_1logger.html#a54421811c3075b6365ca94fd24635c01">clayer::logger::prop_func</a> (Stream &amp;o, const Line &amp;l)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A Prop that prints the function name to a log stream.  <a href="#a54421811c3075b6365ca94fd24635c01"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename Stream &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelogger.html#a8d3b7d1e6a0a66a98d613b6896459d1f">logger::prop_file</a> (Stream &amp;o, const Line &amp;l)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A Prop that prints the filename to a log stream.  <a href="#a8d3b7d1e6a0a66a98d613b6896459d1f"></a><br/></td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceclayer_1_1logger.html#ab33c9793e444dd5edfc1465fb094be57">clayer::logger::prop_file</a> (Stream &amp;o, const Line &amp;l)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A Prop that prints the filename to a log stream.  <a href="#ab33c9793e444dd5edfc1465fb094be57"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename Stream &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelogger.html#aff59ff7ae35fa171261e0aab1c087d63">logger::prop_line</a> (Stream &amp;o, const Line &amp;l)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A Prop that prints the line number to a log stream.  <a href="#aff59ff7ae35fa171261e0aab1c087d63"></a><br/></td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceclayer_1_1logger.html#a28f92739a801f67754ec824666140979">clayer::logger::prop_line</a> (Stream &amp;o, const Line &amp;l)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A Prop that prints the line number to a log stream.  <a href="#a28f92739a801f67754ec824666140979"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const Flag&lt; true &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelogger_1_1hash.html#a93c39521387cd19774cf89d11d6e3f09">logger::hash::on</a> = Flag&lt;true&gt;::inst</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const Flag&lt; false &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelogger_1_1hash.html#afcb366d3598a19fad345a2715264461a">logger::hash::off</a> = Flag&lt;false&gt;::inst</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">concept bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelogger.html#a80233f8eaec1bd67fe2686a6c9edc776">logger::Streamable</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const Flag&lt; true &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclayer_1_1logger_1_1hash.html#a0df45f5b398d452bedf6c5dcdb20d582">clayer::logger::hash::on</a> = Flag&lt;true&gt;::inst</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const Flag&lt; false &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclayer_1_1logger_1_1hash.html#aa6ee4308b6a788627ebcd620b9447249">clayer::logger::hash::off</a> = Flag&lt;false&gt;::inst</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">concept bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclayer_1_1logger.html#a5b347f101c9fe4ca968c0c21b61d6e44">clayer::logger::Streamable</a></td></tr>
 </table>
 </div><!-- contents -->
 <!-- window showing the filter options -->

@@ -1,8 +1,8 @@
-.TH "logger::Line" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
+.TH "clayer::logger::Line" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-logger::Line \- 
+clayer::logger::Line \- 
 .PP
 A structure representing all the information about a particular logging line\&. Includes contextual and message information\&.  
 
@@ -37,7 +37,7 @@ A structure representing all the information about a particular logging line\&. 
 A structure representing all the information about a particular logging line\&. Includes contextual and message information\&. 
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "\fBlogger::Line::Line\fP (const \fBContextInfo\fP &i)\fC [inline]\fP"
+.SS "\fBclayer::logger::Line::Line\fP (const \fBContextInfo\fP &i)\fC [inline]\fP"
 .PP
 Constructs a \fBLine\fP from a \fBContextInfo\fP with initial empty message and hash values\&. A \fBContextInfo\fP is necessary to provide the initial state of the \fBLine\fP\&. \fBParameters:\fP
 .RS 4
@@ -47,9 +47,9 @@ Constructs a \fBLine\fP from a \fBContextInfo\fP with initial empty message and 
 
 .SH "Member Data Documentation"
 .PP 
-.SS "intptr_t \fBlogger::Line::hash\fP"
-.SS "\fBContextInfo\fP \fBlogger::Line::info\fP"
-.SS "std::ostringstream \fBlogger::Line::message\fP"
+.SS "intptr_t \fBclayer::logger::Line::hash\fP"
+.SS "\fBContextInfo\fP \fBclayer::logger::Line::info\fP"
+.SS "std::ostringstream \fBclayer::logger::Line::message\fP"
 
 .SH "Author"
 .PP 

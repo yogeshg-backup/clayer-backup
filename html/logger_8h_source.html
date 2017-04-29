@@ -92,176 +92,177 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00010"></a>00010 <span class="preprocessor">#include &lt;mutex&gt;</span>
 <a name="l00011"></a>00011 <span class="preprocessor">#include &lt;type_traits&gt;</span>
 <a name="l00012"></a>00012 
-<a name="l00013"></a>00013 <span class="keyword">namespace </span>logger {
-<a name="l00014"></a>00014 
-<a name="l00020"></a><a class="code" href="structlogger_1_1_context_info.html">00020</a> <span class="keyword">struct </span><a class="code" href="structlogger_1_1_context_info.html" title="A plain-old-data container for the fixed code context of a log record. Necessary to propagate context...">ContextInfo</a> {
-<a name="l00021"></a>00021   <span class="comment">// A pointer to the filename containing the log command.</span>
-<a name="l00022"></a><a class="code" href="structlogger_1_1_context_info.html#ac6f3f907b2e62efd0b3326e60880e9e0">00022</a>   <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="structlogger_1_1_context_info.html#ac6f3f907b2e62efd0b3326e60880e9e0">file</a>;
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024   <span class="comment">// A pointer to the function name containing the log command.</span>
-<a name="l00025"></a><a class="code" href="structlogger_1_1_context_info.html#af6ead3c6f151e84a0b9ea4dbe83e7211">00025</a>   <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="structlogger_1_1_context_info.html#af6ead3c6f151e84a0b9ea4dbe83e7211">fn</a>;
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027   <span class="comment">// Values representing the line of the log command and the severity level at</span>
-<a name="l00028"></a>00028   <span class="comment">// which it was invoked.</span>
-<a name="l00029"></a><a class="code" href="structlogger_1_1_context_info.html#a59405c6bfefebb9e90246a9a74bd9a28">00029</a>   <span class="keywordtype">int</span> <a class="code" href="structlogger_1_1_context_info.html#a59405c6bfefebb9e90246a9a74bd9a28">line</a>, <a class="code" href="structlogger_1_1_context_info.html#a25b943d1ff5694941b5b36588b01aa95">level</a>;
-<a name="l00030"></a>00030 };
-<a name="l00031"></a>00031 
-<a name="l00036"></a><a class="code" href="structlogger_1_1_line.html">00036</a> <span class="keyword">struct </span><a class="code" href="structlogger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> {
-<a name="l00037"></a>00037   <span class="comment">// Information about the context of the recorded line: file, function,</span>
-<a name="l00038"></a>00038   <span class="comment">// severity, line number.</span>
-<a name="l00039"></a><a class="code" href="structlogger_1_1_line.html#a8e5c9b3d1e9089cb0be161ab538edea0">00039</a>   <a class="code" href="structlogger_1_1_context_info.html" title="A plain-old-data container for the fixed code context of a log record. Necessary to propagate context...">ContextInfo</a> <a class="code" href="structlogger_1_1_line.html#a8e5c9b3d1e9089cb0be161ab538edea0">info</a>;
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041   <span class="comment">// A local buffer for the message corresponding to this log command.</span>
-<a name="l00042"></a><a class="code" href="structlogger_1_1_line.html#a61ff2a8346f3ebb8f4f3306b2dc47104">00042</a>   std::ostringstream <a class="code" href="structlogger_1_1_line.html#a61ff2a8346f3ebb8f4f3306b2dc47104">message</a>;
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044   <span class="comment">// A hash that serves as an identifier for the message. It depends on the</span>
-<a name="l00045"></a>00045   <span class="comment">// identifiers (for now, addresses) of the components of the message (the</span>
-<a name="l00046"></a>00046   <span class="comment">// variables and strings output)</span>
-<a name="l00047"></a><a class="code" href="structlogger_1_1_line.html#a9673dfbf805817d99721ff4ef72c6784">00047</a>   intptr_t <a class="code" href="structlogger_1_1_line.html#a9673dfbf805817d99721ff4ef72c6784">hash</a>;
-<a name="l00048"></a>00048 
-<a name="l00057"></a><a class="code" href="structlogger_1_1_line.html#a505cfc9a31a74acf488db883d0641804">00057</a>   <a class="code" href="structlogger_1_1_line.html#a505cfc9a31a74acf488db883d0641804" title="Constructs a Line from a ContextInfo with initial empty message and hash values. A ContextInfo is nec...">Line</a>(<span class="keyword">const</span> <a class="code" href="structlogger_1_1_context_info.html" title="A plain-old-data container for the fixed code context of a log record. Necessary to propagate context...">ContextInfo</a> &amp;i) : <a class="code" href="structlogger_1_1_line.html#a8e5c9b3d1e9089cb0be161ab538edea0">info</a>(i), <a class="code" href="structlogger_1_1_line.html#a61ff2a8346f3ebb8f4f3306b2dc47104">message</a>(), <a class="code" href="structlogger_1_1_line.html#a9673dfbf805817d99721ff4ef72c6784">hash</a>(0) {}
-<a name="l00058"></a>00058 };
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060 <span class="comment">// Type aliases for functions used to manipulate logging output.</span>
-<a name="l00061"></a>00061 
-<a name="l00073"></a>00073 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Stream&gt; <span class="keyword">using</span> Prop = void (*)(Stream &amp;, <span class="keyword">const</span> Line &amp;);
-<a name="l00074"></a>00074 
-<a name="l00083"></a>00083 <span class="keyword">using</span> Filter = bool (*)(Line &amp;);
-<a name="l00084"></a>00084 
-<a name="l00088"></a><a class="code" href="namespacelogger.html#ad1434b8d74f2370c46afdaf5e671dd70">00088</a> <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Stream&gt; <span class="keywordtype">void</span> <a class="code" href="namespacelogger.html#ad1434b8d74f2370c46afdaf5e671dd70" title="A Prop that prints the message component to a log stream.">prop_msg</a>(Stream &amp;o, <span class="keyword">const</span> <a class="code" href="structlogger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> &amp;l) {
-<a name="l00089"></a>00089   o &lt;&lt; l.<a class="code" href="structlogger_1_1_line.html#a61ff2a8346f3ebb8f4f3306b2dc47104">message</a>.str();
-<a name="l00090"></a>00090 }
-<a name="l00091"></a>00091 
-<a name="l00096"></a>00096 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Stream&gt;
-<a name="l00097"></a><a class="code" href="namespacelogger.html#a415b7c6ed34d3556ab2794b5b8a4d248">00097</a> <span class="keywordtype">void</span> <a class="code" href="namespacelogger.html#a415b7c6ed34d3556ab2794b5b8a4d248" title="A Prop that prints the hash identifier in hexadecimal of a log to a log stream.">prop_hash</a>(Stream &amp;o, <span class="keyword">const</span> <a class="code" href="structlogger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> &amp;l) {
-<a name="l00098"></a>00098   <span class="keyword">auto</span> f = o.flags();
-<a name="l00099"></a>00099   o &lt;&lt; std::hex &lt;&lt; std::showbase &lt;&lt; l.<a class="code" href="structlogger_1_1_line.html#a9673dfbf805817d99721ff4ef72c6784">hash</a>;
-<a name="l00100"></a>00100   o.flags(f);
-<a name="l00101"></a>00101 }
-<a name="l00102"></a>00102 
-<a name="l00106"></a><a class="code" href="namespacelogger.html#af63496442bb5ef6610424dc2570418d0">00106</a> <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Stream&gt; <span class="keywordtype">void</span> <a class="code" href="namespacelogger.html#af63496442bb5ef6610424dc2570418d0" title="A Prop that prints the function name to a log stream.">prop_func</a>(Stream &amp;o, <span class="keyword">const</span> <a class="code" href="structlogger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> &amp;l) {
-<a name="l00107"></a>00107   o &lt;&lt; l.<a class="code" href="structlogger_1_1_line.html#a8e5c9b3d1e9089cb0be161ab538edea0">info</a>.<a class="code" href="structlogger_1_1_context_info.html#af6ead3c6f151e84a0b9ea4dbe83e7211">fn</a>;
-<a name="l00108"></a>00108 }
-<a name="l00109"></a>00109 
-<a name="l00113"></a><a class="code" href="namespacelogger.html#a8d3b7d1e6a0a66a98d613b6896459d1f">00113</a> <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Stream&gt; <span class="keywordtype">void</span> <a class="code" href="namespacelogger.html#a8d3b7d1e6a0a66a98d613b6896459d1f" title="A Prop that prints the filename to a log stream.">prop_file</a>(Stream &amp;o, <span class="keyword">const</span> <a class="code" href="structlogger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> &amp;l) {
-<a name="l00114"></a>00114   o &lt;&lt; l.<a class="code" href="structlogger_1_1_line.html#a8e5c9b3d1e9089cb0be161ab538edea0">info</a>.<a class="code" href="structlogger_1_1_context_info.html#ac6f3f907b2e62efd0b3326e60880e9e0">file</a>;
-<a name="l00115"></a>00115 }
-<a name="l00116"></a>00116 
-<a name="l00120"></a><a class="code" href="namespacelogger.html#aff59ff7ae35fa171261e0aab1c087d63">00120</a> <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Stream&gt; <span class="keywordtype">void</span> <a class="code" href="namespacelogger.html#aff59ff7ae35fa171261e0aab1c087d63" title="A Prop that prints the line number to a log stream.">prop_line</a>(Stream &amp;o, <span class="keyword">const</span> <a class="code" href="structlogger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> &amp;l) {
-<a name="l00121"></a>00121   o &lt;&lt; l.<a class="code" href="structlogger_1_1_line.html#a8e5c9b3d1e9089cb0be161ab538edea0">info</a>.<a class="code" href="structlogger_1_1_context_info.html#a59405c6bfefebb9e90246a9a74bd9a28">line</a>;
-<a name="l00122"></a>00122 }
-<a name="l00123"></a>00123 
-<a name="l00128"></a><a class="code" href="namespacelogger_1_1hash.html">00128</a> <span class="keyword">namespace </span>hash {
-<a name="l00135"></a><a class="code" href="classlogger_1_1hash_1_1_flag.html">00135</a>   <span class="keyword">template</span> &lt;<span class="keywordtype">bool</span> Val&gt; <span class="keyword">class </span><a class="code" href="classlogger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag</a> {
-<a name="l00136"></a>00136     <a class="code" href="classlogger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag</a>() {}
-<a name="l00137"></a>00137   <span class="keyword">public</span>:
-<a name="l00138"></a><a class="code" href="classlogger_1_1hash_1_1_flag.html#afa1062b0545be11a254929c1a28633f0">00138</a>     <span class="keyword">const</span> <span class="keyword">static</span> <a class="code" href="classlogger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag&lt;Val&gt;</a> <a class="code" href="classlogger_1_1hash_1_1_flag.html#afa1062b0545be11a254929c1a28633f0" title="Static singleton instances for the two boolean hash configuration states.">inst</a>;
-<a name="l00139"></a>00139   };
-<a name="l00140"></a>00140 
-<a name="l00147"></a>00147   <span class="keyword">template</span> &lt;<span class="keywordtype">bool</span> Val&gt; <span class="keyword">const</span> <a class="code" href="classlogger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag&lt;Val&gt;</a> <a class="code" href="classlogger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag&lt;Val&gt;::inst</a>;
-<a name="l00148"></a><a class="code" href="namespacelogger_1_1hash.html#a93c39521387cd19774cf89d11d6e3f09">00148</a>   <span class="keyword">const</span> <a class="code" href="classlogger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag&lt;true&gt;</a> &amp;<a class="code" href="namespacelogger_1_1hash.html#a93c39521387cd19774cf89d11d6e3f09">on</a> = <a class="code" href="classlogger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag&lt;true&gt;::inst</a>;
-<a name="l00149"></a><a class="code" href="namespacelogger_1_1hash.html#afcb366d3598a19fad345a2715264461a">00149</a>   <span class="keyword">const</span> <a class="code" href="classlogger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag&lt;false&gt;</a> &amp;<a class="code" href="namespacelogger_1_1hash.html#afcb366d3598a19fad345a2715264461a">off</a> = <a class="code" href="classlogger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag&lt;false&gt;::inst</a>;
-<a name="l00150"></a>00150 }
-<a name="l00151"></a>00151 
-<a name="l00152"></a>00152 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
-<a name="l00153"></a><a class="code" href="namespacelogger.html#a80233f8eaec1bd67fe2686a6c9edc776">00153</a> concept <span class="keywordtype">bool</span> <a class="code" href="namespacelogger.html#a80233f8eaec1bd67fe2686a6c9edc776">Streamable</a> = requires (std::ostream s, T t) {
-<a name="l00154"></a>00154   { s &lt;&lt; t } -&gt; std::ostream&amp;;
-<a name="l00155"></a>00155 };
-<a name="l00156"></a>00156 
-<a name="l00177"></a>00177 <span class="keyword">template</span> &lt;const <span class="keywordtype">char</span> *fmt, <span class="keyword">typename</span> Stream, Prop&lt;Stream&gt;... props&gt;
-<a name="l00178"></a><a class="code" href="classlogger_1_1_record.html">00178</a> <span class="keyword">class </span><a class="code" href="classlogger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a> {
-<a name="l00183"></a>00183   Stream &amp;stream;
-<a name="l00184"></a>00184 
-<a name="l00189"></a>00189   <a class="code" href="structlogger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> line;
-<a name="l00190"></a>00190 
-<a name="l00195"></a>00195   <span class="keywordtype">bool</span> hash_enabled;
-<a name="l00196"></a>00196 
-<a name="l00204"></a>00204   Filter filter;
-<a name="l00205"></a>00205 
-<a name="l00209"></a>00209   std::mutex &amp;logging_mutex;
-<a name="l00210"></a>00210 
-<a name="l00214"></a>00214   <span class="keyword">const</span> <span class="keywordtype">char</span> *format = fmt;
-<a name="l00215"></a>00215 
-<a name="l00216"></a>00216   <span class="comment">// adapted from cppreference parameter_pack page</span>
-<a name="l00231"></a>00231 <span class="comment"></span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> print_fmt() {
-<a name="l00232"></a>00232     stream &lt;&lt; format;
-<a name="l00233"></a>00233   }
-<a name="l00234"></a>00234 
-<a name="l00235"></a>00235   <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Targs&gt;
-<a name="l00236"></a>00236   <span class="keyword">inline</span> <span class="keywordtype">void</span> print_fmt(T head, Targs... tail) {
-<a name="l00237"></a>00237     <span class="keywordflow">while</span> (*format != <span class="charliteral">&#39;\0&#39;</span>) {
-<a name="l00238"></a>00238       <span class="keywordflow">if</span> (*(format++) == <span class="charliteral">&#39;%&#39;</span>) {
-<a name="l00239"></a>00239         head(stream, line);
-<a name="l00240"></a>00240         print_fmt(tail...);
-<a name="l00241"></a>00241         <span class="keywordflow">return</span>;
-<a name="l00242"></a>00242       }
-<a name="l00243"></a>00243       stream &lt;&lt; *(format - 1);
-<a name="l00244"></a>00244     }
-<a name="l00245"></a>00245   }
-<a name="l00246"></a>00246 
-<a name="l00247"></a>00247 <span class="keyword">public</span>:
-<a name="l00256"></a><a class="code" href="classlogger_1_1_record.html#a2ec8b53a529dcf19a879fd6099ce6740">00256</a>   <a class="code" href="classlogger_1_1_record.html#a2ec8b53a529dcf19a879fd6099ce6740" title="Constructs a Record from relevant information.">Record</a>(Stream &amp;s, <a class="code" href="structlogger_1_1_context_info.html" title="A plain-old-data container for the fixed code context of a log record. Necessary to propagate context...">ContextInfo</a> input_info, std::mutex &amp;mutex, Filter filter)
-<a name="l00257"></a>00257       : stream(s), line(input_info), hash_enabled(true), filter(filter),
-<a name="l00258"></a>00258         logging_mutex(mutex) {}
-<a name="l00259"></a>00259 
-<a name="l00266"></a><a class="code" href="classlogger_1_1_record.html#a9389b2d3497195f0007cb9edbe37ff42">00266</a>   <a class="code" href="classlogger_1_1_record.html#a9389b2d3497195f0007cb9edbe37ff42" title="Locks the stream mutex and dumps the local buffer to the stream, after applying the final filter...">~Record</a>() {
-<a name="l00267"></a>00267     std::lock_guard&lt;std::mutex&gt; lock(logging_mutex);
-<a name="l00268"></a>00268     <span class="keywordflow">if</span> ((*filter)(line)) {
-<a name="l00269"></a>00269       print_fmt(props...);
-<a name="l00270"></a>00270       stream &lt;&lt; std::endl;
-<a name="l00271"></a>00271     }
-<a name="l00272"></a>00272   }
-<a name="l00273"></a>00273 
-<a name="l00282"></a><a class="code" href="classlogger_1_1_record.html#ad890cf6da52eb9cc6d95be3b1715b1cf">00282</a>   <span class="keyword">template</span> &lt;Streamable S&gt; <a class="code" href="classlogger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a> &amp;<a class="code" href="classlogger_1_1_record.html#ad890cf6da52eb9cc6d95be3b1715b1cf" title="Stream an object to the local buffer. Accepts anything a stringstream would accept. Also modifies the hash identifier if the option is enabled.">operator&lt;&lt;</a>(<span class="keyword">const</span> S &amp;s) {
-<a name="l00283"></a>00283     <span class="keywordflow">if</span> (hash_enabled)
-<a name="l00284"></a>00284       line.<a class="code" href="structlogger_1_1_line.html#a9673dfbf805817d99721ff4ef72c6784">hash</a> ^= intptr_t(&amp;s);
-<a name="l00285"></a>00285     line.<a class="code" href="structlogger_1_1_line.html#a61ff2a8346f3ebb8f4f3306b2dc47104">message</a> &lt;&lt; s;
-<a name="l00286"></a>00286     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00287"></a>00287   }
-<a name="l00288"></a>00288 
-<a name="l00299"></a><a class="code" href="classlogger_1_1_record.html#ad9217756eeaf81384ac4895b64892623">00299</a>   <span class="keyword">template</span> &lt;<span class="keywordtype">bool</span> Val&gt; <a class="code" href="classlogger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a> &amp;operator&lt;&lt;(const hash::Flag&lt;Val&gt; &amp;s) {
-<a name="l00300"></a>00300     hash_enabled = Val;
-<a name="l00301"></a>00301     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00302"></a>00302   }
-<a name="l00303"></a>00303 };
-<a name="l00304"></a>00304 
-<a name="l00309"></a><a class="code" href="classlogger_1_1_no_record.html">00309</a> <span class="keyword">class </span><a class="code" href="classlogger_1_1_no_record.html" title="A record that eats and throws away objects streamed to it. Used for compile-time filtering. Can also be used as a no-op streamer.">NoRecord</a> {
-<a name="l00310"></a>00310 <span class="keyword">public</span>:
-<a name="l00311"></a><a class="code" href="classlogger_1_1_no_record.html#a35a135d6ed36262be53331984b3bf4b2">00311</a>   <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <a class="code" href="classlogger_1_1_no_record.html" title="A record that eats and throws away objects streamed to it. Used for compile-time filtering. Can also be used as a no-op streamer.">NoRecord</a> &amp;<a class="code" href="classlogger_1_1_no_record.html#a35a135d6ed36262be53331984b3bf4b2">operator&lt;&lt;</a>(<span class="keyword">const</span> T &amp;s) { <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00312"></a>00312 };
-<a name="l00313"></a>00313 
-<a name="l00322"></a>00322 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Stream, <span class="keywordtype">int</span> threshold, <span class="keyword">const</span> <span class="keywordtype">char</span> *fmt,
-<a name="l00323"></a>00323           Prop&lt;Stream&gt;... props&gt;
-<a name="l00324"></a><a class="code" href="classlogger_1_1_logger.html">00324</a> <span class="keyword">class </span><a class="code" href="classlogger_1_1_logger.html" title="The wrapper/aggregator class for logging commands. Template-parameterized by format and logging thres...">Logger</a> {
-<a name="l00325"></a>00325 <span class="keyword">private</span>:
-<a name="l00330"></a>00330   std::mutex logging_lock;
-<a name="l00331"></a>00331 
-<a name="l00335"></a>00335   <a class="code" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a> &amp;stream;
-<a name="l00336"></a>00336 
-<a name="l00341"></a>00341   Filter filter;
-<a name="l00342"></a>00342 
-<a name="l00343"></a>00343 <span class="keyword">public</span>:
-<a name="l00349"></a><a class="code" href="classlogger_1_1_logger.html#ad46a993413fda6fe96665891a709126b">00349</a>   <a class="code" href="classlogger_1_1_logger.html#ad46a993413fda6fe96665891a709126b" title="Constructs a logger from a stream.">Logger</a>(<a class="code" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a> &amp;s) : stream(s), filter([](<a class="code" href="structlogger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> &amp;l) { <span class="keywordflow">return</span> <span class="keyword">true</span>; }){};
-<a name="l00350"></a>00350 
-<a name="l00357"></a><a class="code" href="classlogger_1_1_logger.html#ae628f59a856b98c8e4c868d12fbc773a">00357</a>   <span class="keywordtype">void</span> <a class="code" href="classlogger_1_1_logger.html#ae628f59a856b98c8e4c868d12fbc773a" title="Set the filter for the log.">set_filter</a>(Filter f) {
-<a name="l00358"></a>00358     filter = f;
-<a name="l00359"></a>00359   }
-<a name="l00360"></a>00360 
-<a name="l00372"></a>00372   <span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N,
-<a name="l00373"></a><a class="code" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">00373</a>             <span class="keyword">typename</span> std::enable_if&lt;N &gt;= threshold&gt;::type * = <span class="keyword">nullptr</span>&gt;
-<a name="l00374"></a><a class="code" href="classlogger_1_1_logger.html#aaed129924aa987c5a85b19693fbbb2cf">00374</a>   <a class="code" href="classlogger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a>&lt;fmt, <a class="code" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a>, props...&gt; <a class="code" href="classlogger_1_1_logger.html#aaed129924aa987c5a85b19693fbbb2cf">log</a>(<a class="code" href="structlogger_1_1_context_info.html" title="A plain-old-data container for the fixed code context of a log record. Necessary to propagate context...">ContextInfo</a> info) {
-<a name="l00375"></a>00375     <span class="keywordflow">return</span> {stream, info, logging_lock, filter};
-<a name="l00376"></a>00376   }
-<a name="l00377"></a>00377 
-<a name="l00387"></a>00387   <span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N,
-<a name="l00388"></a>00388             <span class="keyword">typename</span> std::enable_if&lt;N&lt;threshold&gt;::type * = <span class="keyword">nullptr</span>&gt; <a class="code" href="classlogger_1_1_no_record.html" title="A record that eats and throws away objects streamed to it. Used for compile-time filtering. Can also be used as a no-op streamer.">NoRecord</a>
-<a name="l00389"></a>00389                 <a class="code" href="classlogger_1_1_logger.html#aaed129924aa987c5a85b19693fbbb2cf">log</a>(<a class="code" href="structlogger_1_1_context_info.html" title="A plain-old-data container for the fixed code context of a log record. Necessary to propagate context...">ContextInfo</a> info) {
-<a name="l00390"></a>00390     <span class="keywordflow">return</span> {};
-<a name="l00391"></a>00391   }
-<a name="l00392"></a>00392 };
-<a name="l00393"></a>00393 }
-<a name="l00394"></a>00394 
-<a name="l00395"></a>00395 <span class="preprocessor">#endif </span><span class="comment">/*__LOGGER_H__*/</span>
+<a name="l00013"></a>00013 <span class="keyword">namespace </span>clayer {
+<a name="l00014"></a>00014 <span class="keyword">namespace </span>logger {
+<a name="l00015"></a>00015 
+<a name="l00021"></a><a class="code" href="structclayer_1_1logger_1_1_context_info.html">00021</a> <span class="keyword">struct </span><a class="code" href="structclayer_1_1logger_1_1_context_info.html" title="A plain-old-data container for the fixed code context of a log record. Necessary to propagate context...">ContextInfo</a> {
+<a name="l00022"></a>00022   <span class="comment">// A pointer to the filename containing the log command.</span>
+<a name="l00023"></a><a class="code" href="structclayer_1_1logger_1_1_context_info.html#addfd1be4d8480e922444ddce88ec7d99">00023</a>   <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="structclayer_1_1logger_1_1_context_info.html#addfd1be4d8480e922444ddce88ec7d99">file</a>;
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025   <span class="comment">// A pointer to the function name containing the log command.</span>
+<a name="l00026"></a><a class="code" href="structclayer_1_1logger_1_1_context_info.html#a0d21d1eddf24edaea0658e558f12be60">00026</a>   <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="structclayer_1_1logger_1_1_context_info.html#a0d21d1eddf24edaea0658e558f12be60">fn</a>;
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028   <span class="comment">// Values representing the line of the log command and the severity level at</span>
+<a name="l00029"></a>00029   <span class="comment">// which it was invoked.</span>
+<a name="l00030"></a><a class="code" href="structclayer_1_1logger_1_1_context_info.html#aa517a6034aadedffdb19a8f3509bda67">00030</a>   <span class="keywordtype">int</span> <a class="code" href="structclayer_1_1logger_1_1_context_info.html#aa517a6034aadedffdb19a8f3509bda67">line</a>, <a class="code" href="structclayer_1_1logger_1_1_context_info.html#a3fb0a3e09becd9800901e4ca3fd41121">level</a>;
+<a name="l00031"></a>00031 };
+<a name="l00032"></a>00032 
+<a name="l00037"></a><a class="code" href="structclayer_1_1logger_1_1_line.html">00037</a> <span class="keyword">struct </span><a class="code" href="structclayer_1_1logger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> {
+<a name="l00038"></a>00038   <span class="comment">// Information about the context of the recorded line: file, function,</span>
+<a name="l00039"></a>00039   <span class="comment">// severity, line number.</span>
+<a name="l00040"></a><a class="code" href="structclayer_1_1logger_1_1_line.html#a3305721e461062f053b2a2d2a8eab9c3">00040</a>   <a class="code" href="structclayer_1_1logger_1_1_context_info.html" title="A plain-old-data container for the fixed code context of a log record. Necessary to propagate context...">ContextInfo</a> <a class="code" href="structclayer_1_1logger_1_1_line.html#a3305721e461062f053b2a2d2a8eab9c3">info</a>;
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042   <span class="comment">// A local buffer for the message corresponding to this log command.</span>
+<a name="l00043"></a><a class="code" href="structclayer_1_1logger_1_1_line.html#a179f9df5668e046d6a98b41fbdf147b5">00043</a>   std::ostringstream <a class="code" href="structclayer_1_1logger_1_1_line.html#a179f9df5668e046d6a98b41fbdf147b5">message</a>;
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045   <span class="comment">// A hash that serves as an identifier for the message. It depends on the</span>
+<a name="l00046"></a>00046   <span class="comment">// identifiers (for now, addresses) of the components of the message (the</span>
+<a name="l00047"></a>00047   <span class="comment">// variables and strings output)</span>
+<a name="l00048"></a><a class="code" href="structclayer_1_1logger_1_1_line.html#a67e6949cb46326ddfd46dfbce281f753">00048</a>   intptr_t <a class="code" href="structclayer_1_1logger_1_1_line.html#a67e6949cb46326ddfd46dfbce281f753">hash</a>;
+<a name="l00049"></a>00049 
+<a name="l00058"></a><a class="code" href="structclayer_1_1logger_1_1_line.html#a49e097be9ffa4ffc21c3dd27c86eae4d">00058</a>   <a class="code" href="structclayer_1_1logger_1_1_line.html#a49e097be9ffa4ffc21c3dd27c86eae4d" title="Constructs a Line from a ContextInfo with initial empty message and hash values. A ContextInfo is nec...">Line</a>(<span class="keyword">const</span> <a class="code" href="structclayer_1_1logger_1_1_context_info.html" title="A plain-old-data container for the fixed code context of a log record. Necessary to propagate context...">ContextInfo</a> &amp;i) : <a class="code" href="structclayer_1_1logger_1_1_line.html#a3305721e461062f053b2a2d2a8eab9c3">info</a>(i), <a class="code" href="structclayer_1_1logger_1_1_line.html#a179f9df5668e046d6a98b41fbdf147b5">message</a>(), <a class="code" href="structclayer_1_1logger_1_1_line.html#a67e6949cb46326ddfd46dfbce281f753">hash</a>(0) {}
+<a name="l00059"></a>00059 };
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 <span class="comment">// Type aliases for functions used to manipulate logging output.</span>
+<a name="l00062"></a>00062 
+<a name="l00074"></a>00074 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Stream&gt; <span class="keyword">using</span> Prop = void (*)(Stream &amp;, <span class="keyword">const</span> Line &amp;);
+<a name="l00075"></a>00075 
+<a name="l00084"></a>00084 <span class="keyword">using</span> Filter = bool (*)(Line &amp;);
+<a name="l00085"></a>00085 
+<a name="l00089"></a><a class="code" href="namespaceclayer_1_1logger.html#acbf50e9be10132661e302f6edab4f7de">00089</a> <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Stream&gt; <span class="keywordtype">void</span> <a class="code" href="namespaceclayer_1_1logger.html#acbf50e9be10132661e302f6edab4f7de" title="A Prop that prints the message component to a log stream.">prop_msg</a>(Stream &amp;o, <span class="keyword">const</span> <a class="code" href="structclayer_1_1logger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> &amp;l) {
+<a name="l00090"></a>00090   o &lt;&lt; l.<a class="code" href="structclayer_1_1logger_1_1_line.html#a179f9df5668e046d6a98b41fbdf147b5">message</a>.str();
+<a name="l00091"></a>00091 }
+<a name="l00092"></a>00092 
+<a name="l00097"></a>00097 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Stream&gt;
+<a name="l00098"></a><a class="code" href="namespaceclayer_1_1logger.html#ae17008e68b9cd7d44ac411f1116c22e7">00098</a> <span class="keywordtype">void</span> <a class="code" href="namespaceclayer_1_1logger.html#ae17008e68b9cd7d44ac411f1116c22e7" title="A Prop that prints the hash identifier in hexadecimal of a log to a log stream.">prop_hash</a>(Stream &amp;o, <span class="keyword">const</span> <a class="code" href="structclayer_1_1logger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> &amp;l) {
+<a name="l00099"></a>00099   <span class="keyword">auto</span> f = o.flags();
+<a name="l00100"></a>00100   o &lt;&lt; std::hex &lt;&lt; std::showbase &lt;&lt; l.<a class="code" href="structclayer_1_1logger_1_1_line.html#a67e6949cb46326ddfd46dfbce281f753">hash</a>;
+<a name="l00101"></a>00101   o.flags(f);
+<a name="l00102"></a>00102 }
+<a name="l00103"></a>00103 
+<a name="l00107"></a><a class="code" href="namespaceclayer_1_1logger.html#a54421811c3075b6365ca94fd24635c01">00107</a> <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Stream&gt; <span class="keywordtype">void</span> <a class="code" href="namespaceclayer_1_1logger.html#a54421811c3075b6365ca94fd24635c01" title="A Prop that prints the function name to a log stream.">prop_func</a>(Stream &amp;o, <span class="keyword">const</span> <a class="code" href="structclayer_1_1logger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> &amp;l) {
+<a name="l00108"></a>00108   o &lt;&lt; l.<a class="code" href="structclayer_1_1logger_1_1_line.html#a3305721e461062f053b2a2d2a8eab9c3">info</a>.<a class="code" href="structclayer_1_1logger_1_1_context_info.html#a0d21d1eddf24edaea0658e558f12be60">fn</a>;
+<a name="l00109"></a>00109 }
+<a name="l00110"></a>00110 
+<a name="l00114"></a><a class="code" href="namespaceclayer_1_1logger.html#ab33c9793e444dd5edfc1465fb094be57">00114</a> <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Stream&gt; <span class="keywordtype">void</span> <a class="code" href="namespaceclayer_1_1logger.html#ab33c9793e444dd5edfc1465fb094be57" title="A Prop that prints the filename to a log stream.">prop_file</a>(Stream &amp;o, <span class="keyword">const</span> <a class="code" href="structclayer_1_1logger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> &amp;l) {
+<a name="l00115"></a>00115   o &lt;&lt; l.<a class="code" href="structclayer_1_1logger_1_1_line.html#a3305721e461062f053b2a2d2a8eab9c3">info</a>.<a class="code" href="structclayer_1_1logger_1_1_context_info.html#addfd1be4d8480e922444ddce88ec7d99">file</a>;
+<a name="l00116"></a>00116 }
+<a name="l00117"></a>00117 
+<a name="l00121"></a><a class="code" href="namespaceclayer_1_1logger.html#a28f92739a801f67754ec824666140979">00121</a> <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Stream&gt; <span class="keywordtype">void</span> <a class="code" href="namespaceclayer_1_1logger.html#a28f92739a801f67754ec824666140979" title="A Prop that prints the line number to a log stream.">prop_line</a>(Stream &amp;o, <span class="keyword">const</span> <a class="code" href="structclayer_1_1logger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> &amp;l) {
+<a name="l00122"></a>00122   o &lt;&lt; l.<a class="code" href="structclayer_1_1logger_1_1_line.html#a3305721e461062f053b2a2d2a8eab9c3">info</a>.<a class="code" href="structclayer_1_1logger_1_1_context_info.html#aa517a6034aadedffdb19a8f3509bda67">line</a>;
+<a name="l00123"></a>00123 }
+<a name="l00124"></a>00124 
+<a name="l00129"></a><a class="code" href="namespaceclayer_1_1logger_1_1hash.html">00129</a> <span class="keyword">namespace </span>hash {
+<a name="l00136"></a><a class="code" href="classclayer_1_1logger_1_1hash_1_1_flag.html">00136</a>   <span class="keyword">template</span> &lt;<span class="keywordtype">bool</span> Val&gt; <span class="keyword">class </span><a class="code" href="classclayer_1_1logger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag</a> {
+<a name="l00137"></a>00137     <a class="code" href="classclayer_1_1logger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag</a>() {}
+<a name="l00138"></a>00138   <span class="keyword">public</span>:
+<a name="l00139"></a><a class="code" href="classclayer_1_1logger_1_1hash_1_1_flag.html#a7b907a8659186a50747ecd60a268720d">00139</a>     <span class="keyword">const</span> <span class="keyword">static</span> <a class="code" href="classclayer_1_1logger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag&lt;Val&gt;</a> <a class="code" href="classclayer_1_1logger_1_1hash_1_1_flag.html#a7b907a8659186a50747ecd60a268720d" title="Static singleton instances for the two boolean hash configuration states.">inst</a>;
+<a name="l00140"></a>00140   };
+<a name="l00141"></a>00141 
+<a name="l00148"></a>00148   <span class="keyword">template</span> &lt;<span class="keywordtype">bool</span> Val&gt; <span class="keyword">const</span> <a class="code" href="classclayer_1_1logger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag&lt;Val&gt;</a> <a class="code" href="classclayer_1_1logger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag&lt;Val&gt;::inst</a>;
+<a name="l00149"></a><a class="code" href="namespaceclayer_1_1logger_1_1hash.html#a0df45f5b398d452bedf6c5dcdb20d582">00149</a>   <span class="keyword">const</span> <a class="code" href="classclayer_1_1logger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag&lt;true&gt;</a> &amp;<a class="code" href="namespaceclayer_1_1logger_1_1hash.html#a0df45f5b398d452bedf6c5dcdb20d582">on</a> = <a class="code" href="classclayer_1_1logger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag&lt;true&gt;::inst</a>;
+<a name="l00150"></a><a class="code" href="namespaceclayer_1_1logger_1_1hash.html#aa6ee4308b6a788627ebcd620b9447249">00150</a>   <span class="keyword">const</span> <a class="code" href="classclayer_1_1logger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag&lt;false&gt;</a> &amp;<a class="code" href="namespaceclayer_1_1logger_1_1hash.html#aa6ee4308b6a788627ebcd620b9447249">off</a> = <a class="code" href="classclayer_1_1logger_1_1hash_1_1_flag.html" title="Template class for template overloading hash settings in logger stream operators.">Flag&lt;false&gt;::inst</a>;
+<a name="l00151"></a>00151 }
+<a name="l00152"></a>00152 
+<a name="l00153"></a>00153 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
+<a name="l00154"></a><a class="code" href="namespaceclayer_1_1logger.html#a5b347f101c9fe4ca968c0c21b61d6e44">00154</a> concept <span class="keywordtype">bool</span> <a class="code" href="namespaceclayer_1_1logger.html#a5b347f101c9fe4ca968c0c21b61d6e44">Streamable</a> = requires (std::ostream s, T t) {
+<a name="l00155"></a>00155   { s &lt;&lt; t } -&gt; std::ostream&amp;;
+<a name="l00156"></a>00156 };
+<a name="l00157"></a>00157 
+<a name="l00178"></a>00178 <span class="keyword">template</span> &lt;const <span class="keywordtype">char</span> *fmt, <span class="keyword">typename</span> Stream, Prop&lt;Stream&gt;... props&gt;
+<a name="l00179"></a><a class="code" href="classclayer_1_1logger_1_1_record.html">00179</a> <span class="keyword">class </span><a class="code" href="classclayer_1_1logger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a> {
+<a name="l00184"></a>00184   Stream &amp;stream;
+<a name="l00185"></a>00185 
+<a name="l00190"></a>00190   <a class="code" href="structclayer_1_1logger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> line;
+<a name="l00191"></a>00191 
+<a name="l00196"></a>00196   <span class="keywordtype">bool</span> hash_enabled;
+<a name="l00197"></a>00197 
+<a name="l00205"></a>00205   Filter filter;
+<a name="l00206"></a>00206 
+<a name="l00210"></a>00210   std::mutex &amp;logging_mutex;
+<a name="l00211"></a>00211 
+<a name="l00215"></a>00215   <span class="keyword">const</span> <span class="keywordtype">char</span> *format = fmt;
+<a name="l00216"></a>00216 
+<a name="l00217"></a>00217   <span class="comment">// adapted from cppreference parameter_pack page</span>
+<a name="l00232"></a>00232 <span class="comment"></span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> print_fmt() {
+<a name="l00233"></a>00233     stream &lt;&lt; format;
+<a name="l00234"></a>00234   }
+<a name="l00235"></a>00235 
+<a name="l00236"></a>00236   <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Targs&gt;
+<a name="l00237"></a>00237   <span class="keyword">inline</span> <span class="keywordtype">void</span> print_fmt(T head, Targs... tail) {
+<a name="l00238"></a>00238     <span class="keywordflow">while</span> (*format != <span class="charliteral">&#39;\0&#39;</span>) {
+<a name="l00239"></a>00239       <span class="keywordflow">if</span> (*(format++) == <span class="charliteral">&#39;%&#39;</span>) {
+<a name="l00240"></a>00240         head(stream, line);
+<a name="l00241"></a>00241         print_fmt(tail...);
+<a name="l00242"></a>00242         <span class="keywordflow">return</span>;
+<a name="l00243"></a>00243       }
+<a name="l00244"></a>00244       stream &lt;&lt; *(format - 1);
+<a name="l00245"></a>00245     }
+<a name="l00246"></a>00246   }
+<a name="l00247"></a>00247 
+<a name="l00248"></a>00248 <span class="keyword">public</span>:
+<a name="l00257"></a><a class="code" href="classclayer_1_1logger_1_1_record.html#a84222ed67a87a2a101e2b949012dd626">00257</a>   <a class="code" href="classclayer_1_1logger_1_1_record.html#a84222ed67a87a2a101e2b949012dd626" title="Constructs a Record from relevant information.">Record</a>(Stream &amp;s, <a class="code" href="structclayer_1_1logger_1_1_context_info.html" title="A plain-old-data container for the fixed code context of a log record. Necessary to propagate context...">ContextInfo</a> input_info, std::mutex &amp;mutex, Filter filter)
+<a name="l00258"></a>00258       : stream(s), line(input_info), hash_enabled(true), filter(filter),
+<a name="l00259"></a>00259         logging_mutex(mutex) {}
+<a name="l00260"></a>00260 
+<a name="l00267"></a><a class="code" href="classclayer_1_1logger_1_1_record.html#aaf04c78e471358d54bf8f4697dfca366">00267</a>   <a class="code" href="classclayer_1_1logger_1_1_record.html#aaf04c78e471358d54bf8f4697dfca366" title="Locks the stream mutex and dumps the local buffer to the stream, after applying the final filter...">~Record</a>() {
+<a name="l00268"></a>00268     std::lock_guard&lt;std::mutex&gt; lock(logging_mutex);
+<a name="l00269"></a>00269     <span class="keywordflow">if</span> ((*filter)(line)) {
+<a name="l00270"></a>00270       print_fmt(props...);
+<a name="l00271"></a>00271       stream &lt;&lt; std::endl;
+<a name="l00272"></a>00272     }
+<a name="l00273"></a>00273   }
+<a name="l00274"></a>00274 
+<a name="l00283"></a><a class="code" href="classclayer_1_1logger_1_1_record.html#aa7c79796e735a64438d88eb7f5ad6482">00283</a>   <span class="keyword">template</span> &lt;Streamable S&gt; <a class="code" href="classclayer_1_1logger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a> &amp;<a class="code" href="classclayer_1_1logger_1_1_record.html#aa7c79796e735a64438d88eb7f5ad6482" title="Stream an object to the local buffer. Accepts anything a stringstream would accept. Also modifies the hash identifier if the option is enabled.">operator&lt;&lt;</a>(<span class="keyword">const</span> S &amp;s) {
+<a name="l00284"></a>00284     <span class="keywordflow">if</span> (hash_enabled)
+<a name="l00285"></a>00285       line.<a class="code" href="structclayer_1_1logger_1_1_line.html#a67e6949cb46326ddfd46dfbce281f753">hash</a> ^= intptr_t(&amp;s);
+<a name="l00286"></a>00286     line.<a class="code" href="structclayer_1_1logger_1_1_line.html#a179f9df5668e046d6a98b41fbdf147b5">message</a> &lt;&lt; s;
+<a name="l00287"></a>00287     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00288"></a>00288   }
+<a name="l00289"></a>00289 
+<a name="l00300"></a><a class="code" href="classclayer_1_1logger_1_1_record.html#a6f618f2f52c6401b6d55f2e218431593">00300</a>   <span class="keyword">template</span> &lt;<span class="keywordtype">bool</span> Val&gt; <a class="code" href="classclayer_1_1logger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a> &amp;operator&lt;&lt;(const hash::Flag&lt;Val&gt; &amp;s) {
+<a name="l00301"></a>00301     hash_enabled = Val;
+<a name="l00302"></a>00302     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00303"></a>00303   }
+<a name="l00304"></a>00304 };
+<a name="l00305"></a>00305 
+<a name="l00310"></a><a class="code" href="classclayer_1_1logger_1_1_no_record.html">00310</a> <span class="keyword">class </span><a class="code" href="classclayer_1_1logger_1_1_no_record.html" title="A record that eats and throws away objects streamed to it. Used for compile-time filtering. Can also be used as a no-op streamer.">NoRecord</a> {
+<a name="l00311"></a>00311 <span class="keyword">public</span>:
+<a name="l00312"></a><a class="code" href="classclayer_1_1logger_1_1_no_record.html#a9b8e77abe8da212c3b1c2dcad21e9c04">00312</a>   <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <a class="code" href="classclayer_1_1logger_1_1_no_record.html" title="A record that eats and throws away objects streamed to it. Used for compile-time filtering. Can also be used as a no-op streamer.">NoRecord</a> &amp;<a class="code" href="classclayer_1_1logger_1_1_no_record.html#a9b8e77abe8da212c3b1c2dcad21e9c04">operator&lt;&lt;</a>(<span class="keyword">const</span> T &amp;s) { <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
+<a name="l00313"></a>00313 };
+<a name="l00314"></a>00314 
+<a name="l00323"></a>00323 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Stream, <span class="keywordtype">int</span> threshold, <span class="keyword">const</span> <span class="keywordtype">char</span> *fmt,
+<a name="l00324"></a>00324           Prop&lt;Stream&gt;... props&gt;
+<a name="l00325"></a><a class="code" href="classclayer_1_1logger_1_1_logger.html">00325</a> <span class="keyword">class </span><a class="code" href="classclayer_1_1logger_1_1_logger.html" title="The wrapper/aggregator class for logging commands. Template-parameterized by format and logging thres...">Logger</a> {
+<a name="l00326"></a>00326 <span class="keyword">private</span>:
+<a name="l00331"></a>00331   std::mutex logging_lock;
+<a name="l00332"></a>00332 
+<a name="l00336"></a>00336   <a class="code" href="classclayer_1_1logger_1_1_logger.html#a9302f1ba0e49a121f3fce3302922bdd2">Stream</a> &amp;stream;
+<a name="l00337"></a>00337 
+<a name="l00342"></a>00342   Filter filter;
+<a name="l00343"></a>00343 
+<a name="l00344"></a>00344 <span class="keyword">public</span>:
+<a name="l00350"></a><a class="code" href="classclayer_1_1logger_1_1_logger.html#a672f99b1b2de47bc4a148147112bed59">00350</a>   <a class="code" href="classclayer_1_1logger_1_1_logger.html#a672f99b1b2de47bc4a148147112bed59" title="Constructs a logger from a stream.">Logger</a>(<a class="code" href="classclayer_1_1logger_1_1_logger.html#a9302f1ba0e49a121f3fce3302922bdd2">Stream</a> &amp;s) : stream(s), filter([](<a class="code" href="structclayer_1_1logger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> &amp;l) { <span class="keywordflow">return</span> <span class="keyword">true</span>; }){};
+<a name="l00351"></a>00351 
+<a name="l00358"></a><a class="code" href="classclayer_1_1logger_1_1_logger.html#a8ac66bf350565b16cc64985a287b4bf5">00358</a>   <span class="keywordtype">void</span> <a class="code" href="classclayer_1_1logger_1_1_logger.html#a8ac66bf350565b16cc64985a287b4bf5" title="Set the filter for the log.">set_filter</a>(Filter f) {
+<a name="l00359"></a>00359     filter = f;
+<a name="l00360"></a>00360   }
+<a name="l00361"></a>00361 
+<a name="l00373"></a>00373   <span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N,
+<a name="l00374"></a><a class="code" href="classclayer_1_1logger_1_1_logger.html#a9302f1ba0e49a121f3fce3302922bdd2">00374</a>             <span class="keyword">typename</span> std::enable_if&lt;N &gt;= threshold&gt;::type * = <span class="keyword">nullptr</span>&gt;
+<a name="l00375"></a><a class="code" href="classclayer_1_1logger_1_1_logger.html#aeb3a473efabd072b0a1c5d2a0a03f2c8">00375</a>   <a class="code" href="classclayer_1_1logger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a>&lt;fmt, <a class="code" href="classclayer_1_1logger_1_1_logger.html#a9302f1ba0e49a121f3fce3302922bdd2">Stream</a>, props...&gt; <a class="code" href="classclayer_1_1logger_1_1_logger.html#aeb3a473efabd072b0a1c5d2a0a03f2c8">log</a>(<a class="code" href="structclayer_1_1logger_1_1_context_info.html" title="A plain-old-data container for the fixed code context of a log record. Necessary to propagate context...">ContextInfo</a> info) {
+<a name="l00376"></a>00376     <span class="keywordflow">return</span> {stream, info, logging_lock, filter};
+<a name="l00377"></a>00377   }
+<a name="l00378"></a>00378 
+<a name="l00388"></a>00388   <span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N,
+<a name="l00389"></a>00389             <span class="keyword">typename</span> std::enable_if&lt;N&lt;threshold&gt;::type * = <span class="keyword">nullptr</span>&gt; <a class="code" href="classclayer_1_1logger_1_1_no_record.html" title="A record that eats and throws away objects streamed to it. Used for compile-time filtering. Can also be used as a no-op streamer.">NoRecord</a>
+<a name="l00390"></a>00390                 <a class="code" href="classclayer_1_1logger_1_1_logger.html#aeb3a473efabd072b0a1c5d2a0a03f2c8">log</a>(<a class="code" href="structclayer_1_1logger_1_1_context_info.html" title="A plain-old-data container for the fixed code context of a log record. Necessary to propagate context...">ContextInfo</a> info) {
+<a name="l00391"></a>00391     <span class="keywordflow">return</span> {};
+<a name="l00392"></a>00392   }
+<a name="l00393"></a>00393 };
+<a name="l00394"></a>00394 }
+<a name="l00395"></a>00395 }
+<a name="l00396"></a>00396 <span class="preprocessor">#endif </span><span class="comment">/*__LOGGER_H__*/</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"

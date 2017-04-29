@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Clayer: logger::Logger&lt; Stream, threshold, fmt, props &gt; Class Template Reference</title>
+<title>Clayer: clayer::logger::Line Struct Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -93,8 +93,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="namespacelogger.html">logger</a>      </li>
-      <li class="navelem"><a class="el" href="classlogger_1_1_logger.html">Logger</a>      </li>
+      <li class="navelem"><a class="el" href="namespaceclayer.html">clayer</a>      </li>
+      <li class="navelem"><a class="el" href="namespaceclayer_1_1logger.html">logger</a>      </li>
+      <li class="navelem"><a class="el" href="structclayer_1_1logger_1_1_line.html">Line</a>      </li>
     </ul>
   </div>
 </div>
@@ -103,106 +104,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">logger::Logger&lt; Stream, threshold, fmt, props &gt; Class Template Reference</div>  </div>
+<div class="title">clayer::logger::Line Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<!-- doxytag: class="logger::Logger" -->
-<p>The wrapper/aggregator class for logging commands. Template-parameterized by format and logging threshold for compile-time configuration.  
- <a href="classlogger_1_1_logger.html#details">More...</a></p>
+<!-- doxytag: class="clayer::logger::Line" -->
+<p>A structure representing all the information about a particular logging line. Includes contextual and message information.  
+ <a href="structclayer_1_1logger_1_1_line.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="logger_8h_source.html">logger.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for clayer::logger::Line:</div>
+<div class="dyncontent">
+<div class="center"><img src="structclayer_1_1logger_1_1_line__coll__graph.png" border="0" usemap="#clayer_1_1logger_1_1_line_coll__map" alt="Collaboration graph"/></div>
+<map name="clayer_1_1logger_1_1_line_coll__map" id="clayer_1_1logger_1_1_line_coll__map">
+<area shape="rect" id="node4" href="structclayer_1_1logger_1_1_context_info.html" title="A plain&#45;old&#45;data container for the fixed code context of a log record. Necessary to propagate context..." alt="" coords="131,5,307,35"/></map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
-<p><a href="classlogger_1_1_logger-members.html">List of all members.</a></p>
+<p><a href="structclayer_1_1logger_1_1_line-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogger_1_1_logger.html#ad46a993413fda6fe96665891a709126b">Logger</a> (<a class="el" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a> &amp;s)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a logger from a stream.  <a href="#ad46a993413fda6fe96665891a709126b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogger_1_1_logger.html#ae628f59a856b98c8e4c868d12fbc773a">set_filter</a> (Filter f)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the filter for the log.  <a href="#ae628f59a856b98c8e4c868d12fbc773a"></a><br/></td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;unsigned int N, typename std::enable_if&lt; N &gt;  = threshold&gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">::type props&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlogger_1_1_logger.html#aaed129924aa987c5a85b19693fbbb2cf">log</a> (<a class="el" href="structlogger_1_1_context_info.html">ContextInfo</a> info)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclayer_1_1logger_1_1_line.html#a49e097be9ffa4ffc21c3dd27c86eae4d">Line</a> (const <a class="el" href="structclayer_1_1logger_1_1_context_info.html">ContextInfo</a> &amp;i)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="structclayer_1_1logger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> from a <a class="el" href="structclayer_1_1logger_1_1_context_info.html" title="A plain-old-data container for the fixed code context of a log record. Necessary to propagate context...">ContextInfo</a> with initial empty message and hash values. A <a class="el" href="structclayer_1_1logger_1_1_context_info.html" title="A plain-old-data container for the fixed code context of a log record. Necessary to propagate context...">ContextInfo</a> is necessary to provide the initial state of the <a class="el" href="structclayer_1_1logger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a>.  <a href="#a49e097be9ffa4ffc21c3dd27c86eae4d"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structclayer_1_1logger_1_1_context_info.html">ContextInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclayer_1_1logger_1_1_line.html#a3305721e461062f053b2a2d2a8eab9c3">info</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::ostringstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclayer_1_1logger_1_1_line.html#a179f9df5668e046d6a98b41fbdf147b5">message</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">intptr_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclayer_1_1logger_1_1_line.html#a67e6949cb46326ddfd46dfbce281f753">hash</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename Stream, int threshold, const char * fmt, Prop&lt; Stream &gt;... props&gt;<br/>
-class logger::Logger&lt; Stream, threshold, fmt, props &gt;</h3>
-
-<p>The wrapper/aggregator class for logging commands. Template-parameterized by format and logging threshold for compile-time configuration. </p>
-<dl class="remark"><dt><b>Remarks:</b></dt><dd>As with the <a class="el" href="classlogger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a> definition, Prop is a fixed type alias as auto template parameters aren't possible in GCC yet. </dd></dl>
+<div class="textblock"><p>A structure representing all the information about a particular logging line. Includes contextual and message information. </p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ad46a993413fda6fe96665891a709126b"></a><!-- doxytag: member="logger::Logger::Logger" ref="ad46a993413fda6fe96665891a709126b" args="(Stream &amp;s)" -->
+<a class="anchor" id="a49e097be9ffa4ffc21c3dd27c86eae4d"></a><!-- doxytag: member="clayer::logger::Line::Line" ref="a49e097be9ffa4ffc21c3dd27c86eae4d" args="(const ContextInfo &amp;i)" -->
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Stream, int threshold, const char * fmt, Prop&lt; Stream &gt;... props&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classlogger_1_1_logger.html">logger::Logger</a>&lt; <a class="el" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a>, threshold, fmt, props &gt;::<a class="el" href="classlogger_1_1_logger.html">Logger</a> </td>
+          <td class="memname"><a class="el" href="structclayer_1_1logger_1_1_line.html#a49e097be9ffa4ffc21c3dd27c86eae4d">clayer::logger::Line::Line</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a> &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structclayer_1_1logger_1_1_context_info.html">ContextInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Constructs a logger from a stream. </p>
+<p>Constructs a <a class="el" href="structclayer_1_1logger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> from a <a class="el" href="structclayer_1_1logger_1_1_context_info.html" title="A plain-old-data container for the fixed code context of a log record. Necessary to propagate context...">ContextInfo</a> with initial empty message and hash values. A <a class="el" href="structclayer_1_1logger_1_1_context_info.html" title="A plain-old-data container for the fixed code context of a log record. Necessary to propagate context...">ContextInfo</a> is necessary to provide the initial state of the <a class="el" href="structclayer_1_1logger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>The stream to which to log. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="aaed129924aa987c5a85b19693fbbb2cf"></a><!-- doxytag: member="logger::Logger::log" ref="aaed129924aa987c5a85b19693fbbb2cf" args="(ContextInfo info)" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Stream, int threshold, const char * fmt, Prop&lt; Stream &gt;... props&gt; </div>
-<div class="memtemplate">
-template&lt;unsigned int N, typename std::enable_if&lt; N &gt;  = threshold&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">::type props <a class="el" href="classlogger_1_1_logger.html">logger::Logger</a>&lt; <a class="el" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a>, threshold, fmt, props &gt;::<a class="el" href="classlogger_1_1_logger.html#aaed129924aa987c5a85b19693fbbb2cf">log</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structlogger_1_1_context_info.html">ContextInfo</a>&#160;</td>
-          <td class="paramname"><em>info</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae628f59a856b98c8e4c868d12fbc773a"></a><!-- doxytag: member="logger::Logger::set_filter" ref="ae628f59a856b98c8e4c868d12fbc773a" args="(Filter f)" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Stream, int threshold, const char * fmt, Prop&lt; Stream &gt;... props&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classlogger_1_1_logger.html">logger::Logger</a>&lt; <a class="el" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a>, threshold, fmt, props &gt;::<a class="el" href="classlogger_1_1_logger.html#ae628f59a856b98c8e4c868d12fbc773a">set_filter</a> </td>
-          <td>(</td>
-          <td class="paramtype">Filter&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Set the filter for the log. </p>
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">A</td><td>boolean function taking in a reference to a <a class="el" href="structlogger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> and outputting a boolean, so it can modify and report whether to finally output or not. </td></tr>
+    <tr><td class="paramname">i</td><td>The filename, function name, line number, and severity level information. </td></tr>
   </table>
   </dd>
 </dl>
@@ -210,14 +161,12 @@ template&lt;typename Stream, int threshold, const char * fmt, Prop&lt; Stream &g
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a9ac8c3c9c479deb76430570d262ff506"></a><!-- doxytag: member="logger::Logger::Stream" ref="a9ac8c3c9c479deb76430570d262ff506" args="" -->
+<a class="anchor" id="a67e6949cb46326ddfd46dfbce281f753"></a><!-- doxytag: member="clayer::logger::Line::hash" ref="a67e6949cb46326ddfd46dfbce281f753" args="" -->
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Stream, int threshold, const char * fmt, Prop&lt; Stream &gt;... props&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">::type <a class="el" href="classlogger_1_1_logger.html">logger::Logger</a>&lt; <a class="el" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a>, threshold, fmt, props &gt;::<a class="el" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a></td>
+          <td class="memname">intptr_t <a class="el" href="structclayer_1_1logger_1_1_line.html#a67e6949cb46326ddfd46dfbce281f753">clayer::logger::Line::hash</a></td>
         </tr>
       </table>
 </div>
@@ -225,7 +174,33 @@ template&lt;typename Stream, int threshold, const char * fmt, Prop&lt; Stream &g
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a class="anchor" id="a3305721e461062f053b2a2d2a8eab9c3"></a><!-- doxytag: member="clayer::logger::Line::info" ref="a3305721e461062f053b2a2d2a8eab9c3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structclayer_1_1logger_1_1_context_info.html">ContextInfo</a> <a class="el" href="structclayer_1_1logger_1_1_line.html#a3305721e461062f053b2a2d2a8eab9c3">clayer::logger::Line::info</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a179f9df5668e046d6a98b41fbdf147b5"></a><!-- doxytag: member="clayer::logger::Line::message" ref="a179f9df5668e046d6a98b41fbdf147b5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostringstream <a class="el" href="structclayer_1_1logger_1_1_line.html#a179f9df5668e046d6a98b41fbdf147b5">clayer::logger::Line::message</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/home/travis/build/yogeshg/clayer/include/<a class="el" href="logger_8h_source.html">logger.h</a></li>
 </ul>
 </div><!-- contents -->

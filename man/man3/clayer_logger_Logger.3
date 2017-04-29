@@ -1,8 +1,8 @@
-.TH "logger::Logger< Stream, threshold, fmt, props >" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
+.TH "clayer::logger::Logger< Stream, threshold, fmt, props >" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-logger::Logger< Stream, threshold, fmt, props > \- 
+clayer::logger::Logger< Stream, threshold, fmt, props > \- 
 .PP
 The wrapper/aggregator class for logging commands\&. Template-parameterized by format and logging threshold for compile-time configuration\&.  
 
@@ -36,7 +36,7 @@ The wrapper/aggregator class for logging commands\&. Template-parameterized by f
 .SH "Detailed Description"
 .PP 
 
-.SS "template<typename Stream, int threshold, const char * fmt, Prop< Stream >\&.\&.\&. props>class logger::Logger< Stream, threshold, fmt, props >"
+.SS "template<typename Stream, int threshold, const char * fmt, Prop< Stream >\&.\&.\&. props>class clayer::logger::Logger< Stream, threshold, fmt, props >"
 The wrapper/aggregator class for logging commands\&. Template-parameterized by format and logging threshold for compile-time configuration\&. 
 
 \fBRemarks:\fP
@@ -47,7 +47,7 @@ As with the \fBRecord\fP definition, Prop is a fixed type alias as auto template
 
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "template<typename Stream, int threshold, const char * fmt, Prop< Stream >\&.\&.\&. props> \fBlogger::Logger\fP< \fBStream\fP, threshold, fmt, props >::\fBLogger\fP (\fBStream\fP &s)\fC [inline]\fP"
+.SS "template<typename Stream, int threshold, const char * fmt, Prop< Stream >\&.\&.\&. props> \fBclayer::logger::Logger\fP< \fBStream\fP, threshold, fmt, props >::\fBLogger\fP (\fBStream\fP &s)\fC [inline]\fP"
 .PP
 Constructs a logger from a stream\&. \fBParameters:\fP
 .RS 4
@@ -57,8 +57,8 @@ Constructs a logger from a stream\&. \fBParameters:\fP
 
 .SH "Member Function Documentation"
 .PP 
-.SS "template<typename Stream, int threshold, const char * fmt, Prop< Stream >\&.\&.\&. props> template<unsigned int N, typename std::enable_if< N >  = threshold> ::type props \fBlogger::Logger\fP< \fBStream\fP, threshold, fmt, props >::\fBlog\fP (\fBContextInfo\fPinfo)\fC [inline]\fP"
-.SS "template<typename Stream, int threshold, const char * fmt, Prop< Stream >\&.\&.\&. props> void \fBlogger::Logger\fP< \fBStream\fP, threshold, fmt, props >::\fBset_filter\fP (Filterf)\fC [inline]\fP"
+.SS "template<typename Stream, int threshold, const char * fmt, Prop< Stream >\&.\&.\&. props> template<unsigned int N, typename std::enable_if< N >  = threshold> ::type props \fBclayer::logger::Logger\fP< \fBStream\fP, threshold, fmt, props >::\fBlog\fP (\fBContextInfo\fPinfo)\fC [inline]\fP"
+.SS "template<typename Stream, int threshold, const char * fmt, Prop< Stream >\&.\&.\&. props> void \fBclayer::logger::Logger\fP< \fBStream\fP, threshold, fmt, props >::\fBset_filter\fP (Filterf)\fC [inline]\fP"
 .PP
 Set the filter for the log\&. \fBParameters:\fP
 .RS 4
@@ -68,7 +68,7 @@ Set the filter for the log\&. \fBParameters:\fP
 
 .SH "Member Data Documentation"
 .PP 
-.SS "template<typename Stream, int threshold, const char * fmt, Prop< Stream >\&.\&.\&. props> ::type \fBlogger::Logger\fP< \fBStream\fP, threshold, fmt, props >::\fBStream\fP"
+.SS "template<typename Stream, int threshold, const char * fmt, Prop< Stream >\&.\&.\&. props> ::type \fBclayer::logger::Logger\fP< \fBStream\fP, threshold, fmt, props >::\fBStream\fP"
 
 .SH "Author"
 .PP 
