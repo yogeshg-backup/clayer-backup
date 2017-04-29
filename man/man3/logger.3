@@ -1,0 +1,177 @@
+.TH "logger" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+logger \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBhash\fP"
+.br
+.RI "\fIFunctionality related to specifying if a component of a log message should influence the hash of the message or not\&. \fP"
+.in -1c
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBContextInfo\fP"
+.br
+.RI "\fIA plain-old-data container for the fixed code context of a log record\&. Necessary to propagate context information from the predefined macros\&. Auxiliary, short-lived class with life-time the duration of the log command\&. \fP"
+.ti -1c
+.RI "struct \fBLine\fP"
+.br
+.RI "\fIA structure representing all the information about a particular logging line\&. Includes contextual and message information\&. \fP"
+.ti -1c
+.RI "class \fBRecord\fP"
+.br
+.RI "\fIA catch-all class for storing a log line record and printing it according to a format\&. \fP"
+.ti -1c
+.RI "class \fBNoRecord\fP"
+.br
+.RI "\fIA record that eats and throws away objects streamed to it\&. Used for compile-time filtering\&. Can also be used as a no-op streamer\&. \fP"
+.ti -1c
+.RI "class \fBLogger\fP"
+.br
+.RI "\fIThe wrapper/aggregator class for logging commands\&. Template-parameterized by format and logging threshold for compile-time configuration\&. \fP"
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBSeverity\fP { \fBNOTSET\fP =  0, \fBDEBUG\fP =  10, \fBINFO\fP =  20, \fBWARNING\fP =  30, \fBERROR\fP =  40, \fBCRITICAL\fP =  50 }"
+.br
+.RI "\fISample severity levels for logging commands and classes\&. \fP"
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename Stream > void \fBprop_level\fP (Stream &o, const \fBLine\fP &l)"
+.br
+.RI "\fIA Prop that prints out a string corresponding to the severity level for a given \fBLine\fP\&. \fP"
+.ti -1c
+.RI "template<typename Stream > void \fBprop_time\fP (Stream &o, const \fBLine\fP &l)"
+.br
+.RI "\fIA Prop that prints the current time to the log stream\&. \fP"
+.ti -1c
+.RI "template<typename Stream > void \fBprop_date\fP (Stream &o, const \fBLine\fP &l)"
+.br
+.RI "\fIA Prop that prints the current date to the log stream\&. \fP"
+.ti -1c
+.RI "template<typename Stream > void \fBprop_thread\fP (Stream &o, const \fBLine\fP &l)"
+.br
+.RI "\fIA Prop that prints an identifier for the current thread to the log stream\&. \fP"
+.ti -1c
+.RI "template<typename Stream > void \fBprop_msg\fP (Stream &o, const \fBLine\fP &l)"
+.br
+.RI "\fIA Prop that prints the message component to a log stream\&. \fP"
+.ti -1c
+.RI "template<typename Stream > void \fBprop_hash\fP (Stream &o, const \fBLine\fP &l)"
+.br
+.RI "\fIA Prop that prints the hash identifier in hexadecimal of a log to a log stream\&. \fP"
+.ti -1c
+.RI "template<typename Stream > void \fBprop_func\fP (Stream &o, const \fBLine\fP &l)"
+.br
+.RI "\fIA Prop that prints the function name to a log stream\&. \fP"
+.ti -1c
+.RI "template<typename Stream > void \fBprop_file\fP (Stream &o, const \fBLine\fP &l)"
+.br
+.RI "\fIA Prop that prints the filename to a log stream\&. \fP"
+.ti -1c
+.RI "template<typename Stream > void \fBprop_line\fP (Stream &o, const \fBLine\fP &l)"
+.br
+.RI "\fIA Prop that prints the line number to a log stream\&. \fP"
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "constexpr const char \fBfull_fmt\fP [] = '\\033[1;31m[% %]\\033[0m %[Thread %:%(%:%)]: [%] [%]'"
+.br
+.RI "\fISample format strings: one with placeholders for several Props, the other for just a single Prop\&. \fP"
+.ti -1c
+.RI "constexpr const char \fBbasic_fmt\fP [] = '%'"
+.br
+.ti -1c
+.RI "concept bool \fBStreamable\fP"
+.br
+.ti -1c
+.RI "constexpr const char \fBmy_format\fP [] = '[%] %[%:%(%:%)]: [%]'"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Additional sample definitions, class instantiations, and macro definitions for easier use\&.
+.PP
+Class and function definitions to facilitate logging and formatting\&. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBlogger::Severity\fP"
+.PP
+Sample severity levels for logging commands and classes\&. 
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fINOTSET \fP\fP
+.TP
+\fB\fIDEBUG \fP\fP
+.TP
+\fB\fIINFO \fP\fP
+.TP
+\fB\fIWARNING \fP\fP
+.TP
+\fB\fIERROR \fP\fP
+.TP
+\fB\fICRITICAL \fP\fP
+
+.SH "Function Documentation"
+.PP 
+.SS "template<typename Stream > void \fBlogger::prop_date\fP (Stream &o, const Line &l)"
+.PP
+A Prop that prints the current date to the log stream\&. 
+.SS "template<typename Stream > void \fBlogger::prop_file\fP (Stream &o, const Line &l)"
+.PP
+A Prop that prints the filename to a log stream\&. 
+.SS "template<typename Stream > void \fBlogger::prop_func\fP (Stream &o, const Line &l)"
+.PP
+A Prop that prints the function name to a log stream\&. 
+.SS "template<typename Stream > void \fBlogger::prop_hash\fP (Stream &o, const Line &l)"
+.PP
+A Prop that prints the hash identifier in hexadecimal of a log to a log stream\&. 
+.SS "template<typename Stream > void \fBlogger::prop_level\fP (Stream &o, const Line &l)"
+.PP
+A Prop that prints out a string corresponding to the severity level for a given \fBLine\fP\&. 
+.SS "template<typename Stream > void \fBlogger::prop_line\fP (Stream &o, const Line &l)"
+.PP
+A Prop that prints the line number to a log stream\&. 
+.SS "template<typename Stream > void \fBlogger::prop_msg\fP (Stream &o, const Line &l)"
+.PP
+A Prop that prints the message component to a log stream\&. 
+.SS "template<typename Stream > void \fBlogger::prop_thread\fP (Stream &o, const Line &l)"
+.PP
+A Prop that prints an identifier for the current thread to the log stream\&. 
+.SS "template<typename Stream > void \fBlogger::prop_time\fP (Stream &o, const Line &l)"
+.PP
+A Prop that prints the current time to the log stream\&. 
+.SH "Variable Documentation"
+.PP 
+.SS "constexpr const char \fBlogger::basic_fmt\fP[] = '%'"
+.SS "constexpr const char \fBlogger::full_fmt\fP[] = '\\033[1;31m[% %]\\033[0m %[Thread %:%(%:%)]: [%] [%]'"
+.PP
+Sample format strings: one with placeholders for several Props, the other for just a single Prop\&. 
+.SS "constexpr const char \fBlogger::my_format\fP[] = '[%] %[%:%(%:%)]: [%]'"
+.SS "concept bool \fBlogger::Streamable\fP"\fBInitial value:\fP
+.PP
+.nf
+ requires (std::ostream s, T t) {
+  { s << t } -> std::ostream&;
+}
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Clayer from the source code\&.

@@ -1,0 +1,197 @@
+.TH "SimpleWeb::ServerBase< socket_type >" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleWeb::ServerBase< socket_type > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <server_http\&.hpp>\fP
+.PP
+Inherited by \fBSimpleWeb::Server< socket_type >\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBConfig\fP"
+.br
+.ti -1c
+.RI "class \fBContent\fP"
+.br
+.ti -1c
+.RI "class \fBregex_orderable\fP"
+.br
+.ti -1c
+.RI "class \fBRequest\fP"
+.br
+.ti -1c
+.RI "class \fBResponse\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fB~ServerBase\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBstart\fP ()"
+.br
+.ti -1c
+.RI "void \fBstop\fP ()"
+.br
+.ti -1c
+.RI "void \fBsend\fP (const std::shared_ptr< \fBResponse\fP > &response, const std::function< void(const boost::system::error_code &)> &callback=nullptr) const "
+.br
+.RI "\fIUse this function if you need to recursively send parts of a longer message\&. \fP"
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBConfig\fP \fBconfig\fP"
+.br
+.RI "\fISet before calling \fBstart()\fP\&. \fP"
+.ti -1c
+.RI "std::map< regex_orderable, 
+.br
+std::map< std::string, 
+.br
+std::function< void(std::shared_ptr
+.br
+< typename \fBServerBase\fP
+.br
+< socket_type >::\fBResponse\fP >
+.br
+, std::shared_ptr< typename 
+.br
+\fBServerBase\fP< socket_type >
+.br
+::\fBRequest\fP >)> > > \fBresource\fP"
+.br
+.RI "\fIWarning: do not add or remove resources after \fBstart()\fP is called\&. \fP"
+.ti -1c
+.RI "std::map< std::string, 
+.br
+std::function< void(std::shared_ptr
+.br
+< typename \fBServerBase\fP
+.br
+< socket_type >::\fBResponse\fP >
+.br
+, std::shared_ptr< typename 
+.br
+\fBServerBase\fP< socket_type >
+.br
+::\fBRequest\fP >)> > \fBdefault_resource\fP"
+.br
+.ti -1c
+.RI "std::function< void(std::shared_ptr
+.br
+< typename \fBServerBase\fP
+.br
+< socket_type >::\fBRequest\fP >
+.br
+, const 
+.br
+boost::system::error_code &)> \fBon_error\fP"
+.br
+.ti -1c
+.RI "std::function< void(std::shared_ptr
+.br
+< socket_type > socket, 
+.br
+std::shared_ptr< typename 
+.br
+\fBServerBase\fP< socket_type >
+.br
+::\fBRequest\fP >)> \fBon_upgrade\fP"
+.br
+.ti -1c
+.RI "std::shared_ptr
+.br
+< boost::asio::io_service > \fBio_service\fP"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBServerBase\fP (unsigned short port)"
+.br
+.ti -1c
+.RI "virtual void \fBaccept\fP ()=0"
+.br
+.ti -1c
+.RI "std::shared_ptr
+.br
+< boost::asio::deadline_timer > \fBget_timeout_timer\fP (const std::shared_ptr< socket_type > &socket, long seconds)"
+.br
+.ti -1c
+.RI "void \fBread_request_and_content\fP (const std::shared_ptr< socket_type > &socket)"
+.br
+.ti -1c
+.RI "bool \fBparse_request\fP (const std::shared_ptr< \fBRequest\fP > &request) const "
+.br
+.ti -1c
+.RI "void \fBfind_resource\fP (const std::shared_ptr< socket_type > &socket, const std::shared_ptr< \fBRequest\fP > &request)"
+.br
+.ti -1c
+.RI "void \fBwrite_response\fP (const std::shared_ptr< socket_type > &socket, const std::shared_ptr< \fBRequest\fP > &request, std::function< void(std::shared_ptr< typename \fBServerBase\fP< socket_type >::\fBResponse\fP >, std::shared_ptr< typename \fBServerBase\fP< socket_type >::\fBRequest\fP >)> &resource_function)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::unique_ptr
+.br
+< boost::asio::ip::tcp::acceptor > \fBacceptor\fP"
+.br
+.ti -1c
+.RI "std::vector< std::thread > \fBthreads\fP"
+.br
+.in -1c
+
+.SS "template<class socket_type> class SimpleWeb::ServerBase< socket_type >"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<class socket_type> virtual \fBSimpleWeb::ServerBase\fP< socket_type >::~\fBServerBase\fP ()\fC [inline, virtual]\fP"
+.SS "template<class socket_type> \fBSimpleWeb::ServerBase\fP< socket_type >::\fBServerBase\fP (unsigned shortport)\fC [inline, protected]\fP"
+.SH "Member Function Documentation"
+.PP 
+.SS "template<class socket_type> virtual void \fBSimpleWeb::ServerBase\fP< socket_type >::\fBaccept\fP ()\fC [protected, pure virtual]\fP"
+.PP
+Implemented in \fBSimpleWeb::Server< HTTP >\fP, \fBSimpleWeb::Server< HTTPS >\fP, and \fBServerTest\fP\&.
+.SS "template<class socket_type> void \fBSimpleWeb::ServerBase\fP< socket_type >::\fBfind_resource\fP (const std::shared_ptr< socket_type > &socket, const std::shared_ptr< \fBRequest\fP > &request)\fC [inline, protected]\fP"
+.SS "template<class socket_type> std::shared_ptr<boost::asio::deadline_timer> \fBSimpleWeb::ServerBase\fP< socket_type >::\fBget_timeout_timer\fP (const std::shared_ptr< socket_type > &socket, longseconds)\fC [inline, protected]\fP"
+.SS "template<class socket_type> bool \fBSimpleWeb::ServerBase\fP< socket_type >::\fBparse_request\fP (const std::shared_ptr< \fBRequest\fP > &request) const\fC [inline, protected]\fP"
+.SS "template<class socket_type> void \fBSimpleWeb::ServerBase\fP< socket_type >::\fBread_request_and_content\fP (const std::shared_ptr< socket_type > &socket)\fC [inline, protected]\fP"
+.SS "template<class socket_type> void \fBSimpleWeb::ServerBase\fP< socket_type >::\fBsend\fP (const std::shared_ptr< \fBResponse\fP > &response, const std::function< void(const boost::system::error_code &)> &callback = \fCnullptr\fP) const\fC [inline]\fP"
+.PP
+Use this function if you need to recursively send parts of a longer message\&. 
+.SS "template<class socket_type> virtual void \fBSimpleWeb::ServerBase\fP< socket_type >::\fBstart\fP ()\fC [inline, virtual]\fP"
+.PP
+Reimplemented in \fBSimpleWeb::Server< HTTPS >\fP\&.
+.SS "template<class socket_type> void \fBSimpleWeb::ServerBase\fP< socket_type >::\fBstop\fP ()\fC [inline]\fP"
+.SS "template<class socket_type> void \fBSimpleWeb::ServerBase\fP< socket_type >::\fBwrite_response\fP (const std::shared_ptr< socket_type > &socket, const std::shared_ptr< \fBRequest\fP > &request, std::function< void(std::shared_ptr< typename \fBServerBase\fP< socket_type >::\fBResponse\fP >, std::shared_ptr< typename \fBServerBase\fP< socket_type >::\fBRequest\fP >)> &resource_function)\fC [inline, protected]\fP"
+.SH "Member Data Documentation"
+.PP 
+.SS "template<class socket_type> std::unique_ptr<boost::asio::ip::tcp::acceptor> \fBSimpleWeb::ServerBase\fP< socket_type >::\fBacceptor\fP\fC [protected]\fP"
+.SS "template<class socket_type> \fBConfig\fP \fBSimpleWeb::ServerBase\fP< socket_type >::\fBconfig\fP"
+.PP
+Set before calling \fBstart()\fP\&. 
+.SS "template<class socket_type> std::map<std::string, std::function<void(std::shared_ptr<typename \fBServerBase\fP<socket_type>::\fBResponse\fP>, std::shared_ptr<typename \fBServerBase\fP<socket_type>::\fBRequest\fP>)> > \fBSimpleWeb::ServerBase\fP< socket_type >::\fBdefault_resource\fP"
+.SS "template<class socket_type> std::shared_ptr<boost::asio::io_service> \fBSimpleWeb::ServerBase\fP< socket_type >::\fBio_service\fP"If you have your own boost::asio::io_service, store its pointer here before running \fBstart()\fP\&. You might also want to set config\&.thread_pool_size to 0\&. 
+.SS "template<class socket_type> std::function<void(std::shared_ptr<typename \fBServerBase\fP<socket_type>::\fBRequest\fP>, const boost::system::error_code&)> \fBSimpleWeb::ServerBase\fP< socket_type >::\fBon_error\fP"
+.SS "template<class socket_type> std::function<void(std::shared_ptr<socket_type> socket, std::shared_ptr<typename \fBServerBase\fP<socket_type>::\fBRequest\fP>)> \fBSimpleWeb::ServerBase\fP< socket_type >::\fBon_upgrade\fP"
+.SS "template<class socket_type> std::map<regex_orderable, std::map<std::string, std::function<void(std::shared_ptr<typename \fBServerBase\fP<socket_type>::\fBResponse\fP>, std::shared_ptr<typename \fBServerBase\fP<socket_type>::\fBRequest\fP>)> > > \fBSimpleWeb::ServerBase\fP< socket_type >::\fBresource\fP"
+.PP
+Warning: do not add or remove resources after \fBstart()\fP is called\&. 
+.SS "template<class socket_type> std::vector<std::thread> \fBSimpleWeb::ServerBase\fP< socket_type >::\fBthreads\fP\fC [protected]\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Clayer from the source code\&.

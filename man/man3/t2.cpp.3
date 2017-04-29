@@ -1,0 +1,86 @@
+.TH "/home/travis/build/yogeshg/clayer/samples/t2.cpp" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/travis/build/yogeshg/clayer/samples/t2.cpp \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <tuple>\fP
+.br
+\fC#include <iostream>\fP
+.br
+\fC#include <array>\fP
+.br
+\fC#include <utility>\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include 't3\&.h'\fP
+.br
+
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBDATE\fP, \fBTIME\fP, \fBFUNC\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<int prop> \fBStreamable\fP \fBget_prop\fP ()"
+.br
+.ti -1c
+.RI "template<> \fBStreamable\fP \fBget_prop< DATE >\fP ()"
+.br
+.ti -1c
+.RI "template<> \fBStreamable\fP \fBget_prop< TIME >\fP ()"
+.br
+.ti -1c
+.RI "template<> \fBStreamable\fP \fBget_prop< FUNC >\fP ()"
+.br
+.ti -1c
+.RI "template<typename T  = void> void \fBprint_props\fP ()"
+.br
+.ti -1c
+.RI "template<> void \fBprint_props\fP ()"
+.br
+.ti -1c
+.RI "template<int head, int\&.\&.\&. I> void \fBprint_props\fP ()"
+.br
+.ti -1c
+.RI "template<> \fBStreamable\fP \fBget_prop< 1500 >\fP ()"
+.br
+.ti -1c
+.RI "int \fBmain\fP ()"
+.br
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "anonymous enum"
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIDATE \fP\fP
+.TP
+\fB\fITIME \fP\fP
+.TP
+\fB\fIFUNC \fP\fP
+
+.SH "Function Documentation"
+.PP 
+.SS "template<int prop> \fBStreamable\fP \fBget_prop\fP ()"
+.SS "template<> \fBStreamable\fP \fBget_prop\fP< 1500 > ()"
+.SS "template<> \fBStreamable\fP \fBget_prop\fP< \fBDATE\fP > ()"
+.SS "template<> \fBStreamable\fP \fBget_prop\fP< \fBFUNC\fP > ()"
+.SS "template<> \fBStreamable\fP \fBget_prop\fP< \fBTIME\fP > ()"
+.SS "int \fBmain\fP ()"
+.SS "template<typename T  = void> void \fBprint_props\fP ()"
+.SS "template<> void \fBprint_props\fP ()"
+.SS "template<int head, int\&.\&.\&. I> void \fBprint_props\fP ()"
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Clayer from the source code\&.

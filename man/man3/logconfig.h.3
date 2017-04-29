@@ -1,0 +1,97 @@
+.TH "/home/travis/build/yogeshg/clayer/include/logconfig.h" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/travis/build/yogeshg/clayer/include/logconfig.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <chrono>\fP
+.br
+\fC#include <fstream>\fP
+.br
+\fC#include <iomanip>\fP
+.br
+\fC#include <iostream>\fP
+.br
+\fC#include <thread>\fP
+.br
+\fC#include 'logger\&.h'\fP
+.br
+
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBlogger\fP"
+.br
+.in -1c
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLOG\fP(severity)   \fBCLOG\fP(\fBLOG\fP, severity)"
+.br
+.ti -1c
+.RI "#define \fBCLOG\fP(instance, severity)   \fBCLOGL\fP(instance, logger::severity)"
+.br
+.ti -1c
+.RI "#define \fBCLOGL\fP(instance, severity)   instance\&.log<severity>({__FILE__, __func__, __LINE__, severity})"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBlogger::Severity\fP { \fBlogger::NOTSET\fP =  0, \fBlogger::DEBUG\fP =  10, \fBlogger::INFO\fP =  20, \fBlogger::WARNING\fP =  30, \fBlogger::ERROR\fP =  40, \fBlogger::CRITICAL\fP =  50 }"
+.br
+.RI "\fISample severity levels for logging commands and classes\&. \fP"
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename Stream > void \fBlogger::prop_level\fP (Stream &o, const Line &l)"
+.br
+.RI "\fIA Prop that prints out a string corresponding to the severity level for a given \fBLine\fP\&. \fP"
+.ti -1c
+.RI "template<typename Stream > void \fBlogger::prop_time\fP (Stream &o, const Line &l)"
+.br
+.RI "\fIA Prop that prints the current time to the log stream\&. \fP"
+.ti -1c
+.RI "template<typename Stream > void \fBlogger::prop_date\fP (Stream &o, const Line &l)"
+.br
+.RI "\fIA Prop that prints the current date to the log stream\&. \fP"
+.ti -1c
+.RI "template<typename Stream > void \fBlogger::prop_thread\fP (Stream &o, const Line &l)"
+.br
+.RI "\fIA Prop that prints an identifier for the current thread to the log stream\&. \fP"
+.ti -1c
+.RI "logger::FullLogger< std::ostream > \fBLOG\fP (std::clog)"
+.br
+.RI "\fIA default logger LOG, along with macros to call loggers with pre-populated contexts\&. Macros are necessary since there's no other way to hook into the filename/function name/line number of the calling site\&. \fP"
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "constexpr const char \fBlogger::full_fmt\fP [] = '\\033[1;31m[% %]\\033[0m %[Thread %:%(%:%)]: [%] [%]'"
+.br
+.RI "\fISample format strings: one with placeholders for several Props, the other for just a single Prop\&. \fP"
+.ti -1c
+.RI "constexpr const char \fBlogger::basic_fmt\fP [] = '%'"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define \fBCLOG\fP(instance, severity)   \fBCLOGL\fP(instance, logger::severity)"
+.SS "#define \fBCLOGL\fP(instance, severity)   instance\&.log<severity>({__FILE__, __func__, __LINE__, severity})"
+.SS "#define \fBLOG\fP(severity)   \fBCLOG\fP(\fBLOG\fP, severity)"
+.SH "Function Documentation"
+.PP 
+.SS "logger::FullLogger<std::ostream> \fBLOG\fP (std::clog)"
+.PP
+A default logger LOG, along with macros to call loggers with pre-populated contexts\&. Macros are necessary since there's no other way to hook into the filename/function name/line number of the calling site\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Clayer from the source code\&.

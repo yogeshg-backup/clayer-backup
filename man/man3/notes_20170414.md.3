@@ -1,0 +1,57 @@
+.TH "/home/travis/build/yogeshg/clayer/docs/old/notes_20170414.md" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/travis/build/yogeshg/clayer/docs/old/notes_20170414.md \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "*We need to allow different 
+.br
+threads to be able to log to 
+.br
+the log file *One solution for 
+.br
+this is to make the log record 
+.br
+atomic only thread can make a 
+.br
+log at a given time c \fBthread1\fP"
+.br
+.ti -1c
+.RI "thread2 \fB__pad0__\fP"
+.br
+.ti -1c
+.RI "if we do not introduce any atomic \fBactions\fP"
+.br
+.ti -1c
+.RI "if we do not introduce any 
+.br
+atomic then both the threads 
+.br
+can attempt to write to the 
+.br
+same underlying stream object 
+.br
+and this can cause errors if 
+.br
+we make every stream operation 
+.br
+atomic we have operations in 
+.br
+the above \fBsample\fP"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "thread2 \fB__pad0__\fP"
+.SS "if we do not introduce any atomic \fBactions\fP"
+.SS "if we do not introduce any atomic then both the threads can attempt to write to the same underlying stream object and this can cause errors if we make every stream operation atomic we have operations in the above \fBsample\fP"
+.SS "* We need to allow different threads to be able to log to the log file* One solution for this is to make the log record atomic only thread can make a log at a given time c \fBthread1\fP"
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Clayer from the source code\&.

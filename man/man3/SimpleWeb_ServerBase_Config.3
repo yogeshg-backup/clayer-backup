@@ -1,0 +1,72 @@
+.TH "SimpleWeb::ServerBase< socket_type >::Config" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleWeb::ServerBase< socket_type >::Config \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <server_http\&.hpp>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "unsigned short \fBport\fP"
+.br
+.RI "\fIPort number to use\&. Defaults to 80 for HTTP and 443 for HTTPS\&. \fP"
+.ti -1c
+.RI "size_t \fBthread_pool_size\fP = 1"
+.br
+.RI "\fINumber of threads that the server will use when \fBstart()\fP is called\&. Defaults to 1 thread\&. \fP"
+.ti -1c
+.RI "size_t \fBtimeout_request\fP = 5"
+.br
+.RI "\fITimeout on request handling\&. Defaults to 5 seconds\&. \fP"
+.ti -1c
+.RI "size_t \fBtimeout_content\fP = 300"
+.br
+.RI "\fITimeout on content handling\&. Defaults to 300 seconds\&. \fP"
+.ti -1c
+.RI "std::string \fBaddress\fP"
+.br
+.ti -1c
+.RI "bool \fBreuse_address\fP = true"
+.br
+.RI "\fISet to false to avoid binding the socket to an address that is already in use\&. Defaults to true\&. \fP"
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBServerBase< socket_type >\fP"
+.br
+.in -1c
+
+.SS "template<class socket_type> class SimpleWeb::ServerBase< socket_type >::Config"
+
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "template<class socket_type> friend class \fBServerBase\fP< socket_type >\fC [friend]\fP"
+.SH "Member Data Documentation"
+.PP 
+.SS "template<class socket_type> std::string \fBSimpleWeb::ServerBase\fP< socket_type >::\fBConfig::address\fP"IPv4 address in dotted decimal form or IPv6 address in hexadecimal notation\&. If empty, the address will be any address\&. 
+.SS "template<class socket_type> unsigned short \fBSimpleWeb::ServerBase\fP< socket_type >::\fBConfig::port\fP"
+.PP
+Port number to use\&. Defaults to 80 for HTTP and 443 for HTTPS\&. 
+.SS "template<class socket_type> bool \fBSimpleWeb::ServerBase\fP< socket_type >::\fBConfig::reuse_address\fP = true"
+.PP
+Set to false to avoid binding the socket to an address that is already in use\&. Defaults to true\&. 
+.SS "template<class socket_type> size_t \fBSimpleWeb::ServerBase\fP< socket_type >::\fBConfig::thread_pool_size\fP = 1"
+.PP
+Number of threads that the server will use when \fBstart()\fP is called\&. Defaults to 1 thread\&. 
+.SS "template<class socket_type> size_t \fBSimpleWeb::ServerBase\fP< socket_type >::\fBConfig::timeout_content\fP = 300"
+.PP
+Timeout on content handling\&. Defaults to 300 seconds\&. 
+.SS "template<class socket_type> size_t \fBSimpleWeb::ServerBase\fP< socket_type >::\fBConfig::timeout_request\fP = 5"
+.PP
+Timeout on request handling\&. Defaults to 5 seconds\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Clayer from the source code\&.

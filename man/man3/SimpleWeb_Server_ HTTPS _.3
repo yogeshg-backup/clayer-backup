@@ -1,0 +1,61 @@
+.TH "SimpleWeb::Server< HTTPS >" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleWeb::Server< HTTPS > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <server_https\&.hpp>\fP
+.PP
+Inherits \fBSimpleWeb::ServerBase< HTTPS >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "DEPRECATED \fBServer\fP (unsigned short port, size_t thread_pool_size, const std::string &cert_file, const std::string &private_key_file, long timeout_request=5, long timeout_content=300, const std::string &verify_file=std::string())"
+.br
+.ti -1c
+.RI "\fBServer\fP (const std::string &cert_file, const std::string &private_key_file, const std::string &verify_file=std::string())"
+.br
+.ti -1c
+.RI "void \fBstart\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBaccept\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "boost::asio::ssl::context \fBcontext\fP"
+.br
+.in -1c
+
+.SS "template<> class SimpleWeb::Server< HTTPS >"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "DEPRECATED \fBSimpleWeb::Server\fP< \fBHTTPS\fP >::\fBServer\fP (unsigned shortport, size_tthread_pool_size, const std::string &cert_file, const std::string &private_key_file, longtimeout_request = \fC5\fP, longtimeout_content = \fC300\fP, const std::string &verify_file = \fCstd::string()\fP)\fC [inline]\fP"
+.SS "\fBSimpleWeb::Server\fP< \fBHTTPS\fP >::\fBServer\fP (const std::string &cert_file, const std::string &private_key_file, const std::string &verify_file = \fCstd::string()\fP)\fC [inline]\fP"
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBSimpleWeb::Server\fP< \fBHTTPS\fP >::\fBaccept\fP ()\fC [inline, protected, virtual]\fP"
+.PP
+Implements \fBSimpleWeb::ServerBase< HTTPS >\fP\&.
+.SS "void \fBSimpleWeb::Server\fP< \fBHTTPS\fP >::\fBstart\fP ()\fC [inline, virtual]\fP"
+.PP
+Reimplemented from \fBSimpleWeb::ServerBase< HTTPS >\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "boost::asio::ssl::context \fBSimpleWeb::Server\fP< \fBHTTPS\fP >::\fBcontext\fP\fC [protected]\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Clayer from the source code\&.
