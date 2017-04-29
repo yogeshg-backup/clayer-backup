@@ -1,8 +1,8 @@
-.TH "clayer::logger::Record< fmt, Stream, props >" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
+.TH "logger::Record< fmt, Stream, props >" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-clayer::logger::Record< fmt, Stream, props > \- 
+logger::Record< fmt, Stream, props > \- 
 .PP
 A catch-all class for storing a log line record and printing it according to a format\&.  
 
@@ -15,7 +15,7 @@ A catch-all class for storing a log line record and printing it according to a f
 
 .in +1c
 .ti -1c
-.RI "\fBRecord\fP (Stream &s, \fBContextInfo\fP input_info, std::mutex &mutex, Filter filter)"
+.RI "\fBRecord\fP (\fBStream\fP &s, \fBContextInfo\fP input_info, std::mutex &mutex, Filter filter)"
 .br
 .RI "\fIConstructs a \fBRecord\fP from relevant information\&. \fP"
 .ti -1c
@@ -34,7 +34,7 @@ A catch-all class for storing a log line record and printing it according to a f
 .SH "Detailed Description"
 .PP 
 
-.SS "template<const char * fmt, typename Stream, Prop< Stream >\&.\&.\&. props>class clayer::logger::Record< fmt, Stream, props >"
+.SS "template<const char * fmt, typename Stream, Prop< Stream >\&.\&.\&. props>class logger::Record< fmt, Stream, props >"
 A catch-all class for storing a log line record and printing it according to a format\&. 
 
 The cornerstone of the logging library\&. This class takes contextual information about a log call, along with auxiliary structures like a mutex and a filter, and provides a way to stream message data to the log\&. When its time comes (at the end of the logging command, if used properly), it'll flush its local buffer into the stream passed to it\&.
@@ -47,7 +47,7 @@ This hints at why Prop must be a type alias instead of a concept\&. \fBRecord\fP
 [1] www\&.open-std\&.org/jtc1/sc22/wg21/docs/papers/2016/p0127r1\&.html 
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "template<const char * fmt, typename Stream , Prop< Stream >\&.\&.\&. props> \fBclayer::logger::Record\fP< fmt, Stream, props >::\fBRecord\fP (Stream &s, \fBContextInfo\fPinput_info, std::mutex &mutex, Filterfilter)\fC [inline]\fP"
+.SS "template<const char * fmt, typename Stream , Prop< Stream >\&.\&.\&. props> \fBlogger::Record\fP< fmt, \fBStream\fP, props >::\fBRecord\fP (\fBStream\fP &s, \fBContextInfo\fPinput_info, std::mutex &mutex, Filterfilter)\fC [inline]\fP"
 .PP
 Constructs a \fBRecord\fP from relevant information\&. \fBParameters:\fP
 .RS 4
@@ -61,12 +61,12 @@ Constructs a \fBRecord\fP from relevant information\&. \fBParameters:\fP
 .RE
 .PP
 
-.SS "template<const char * fmt, typename Stream , Prop< Stream >\&.\&.\&. props> \fBclayer::logger::Record\fP< fmt, Stream, props >::~\fBRecord\fP ()\fC [inline]\fP"
+.SS "template<const char * fmt, typename Stream , Prop< Stream >\&.\&.\&. props> \fBlogger::Record\fP< fmt, \fBStream\fP, props >::~\fBRecord\fP ()\fC [inline]\fP"
 .PP
 Locks the stream mutex and dumps the local buffer to the stream, after applying the final filter\&. In the class's standard usage, Records live only as rvalues without any names, so that they're destroyed at the end of the log statement\&. 
 .SH "Member Function Documentation"
 .PP 
-.SS "template<const char * fmt, typename Stream , Prop< Stream >\&.\&.\&. props> template<Streamable S> \fBRecord\fP& \fBclayer::logger::Record\fP< fmt, Stream, props >::operator<< (const S &s)\fC [inline]\fP"
+.SS "template<const char * fmt, typename Stream , Prop< Stream >\&.\&.\&. props> template<Streamable S> \fBRecord\fP& \fBlogger::Record\fP< fmt, \fBStream\fP, props >::operator<< (const S &s)\fC [inline]\fP"
 .PP
 Stream an object to the local buffer\&. Accepts anything a stringstream would accept\&. Also modifies the hash identifier if the option is enabled\&. \fBParameters:\fP
 .RS 4
@@ -79,7 +79,7 @@ The same record, for stringing stream commands\&.
 .RE
 .PP
 
-.SS "template<const char * fmt, typename Stream , Prop< Stream >\&.\&.\&. props> template<bool Val> \fBRecord\fP& \fBclayer::logger::Record\fP< fmt, Stream, props >::operator<< (const \fBhash::Flag\fP< Val > &s)\fC [inline]\fP"
+.SS "template<const char * fmt, typename Stream , Prop< Stream >\&.\&.\&. props> template<bool Val> \fBRecord\fP& \fBlogger::Record\fP< fmt, \fBStream\fP, props >::operator<< (const \fBhash::Flag\fP< Val > &s)\fC [inline]\fP"
 .PP
 Set the flag that determines whether or not subsequent objects to be streamed should influence the hash or not\&. Similar to std::hex\&. \fBParameters:\fP
 .RS 4

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Clayer: clayer::logger::ContextInfo Struct Reference</title>
+<title>Clayer: logger::hash Namespace Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -49,8 +49,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -72,9 +72,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="namespaces.html"><span>Namespace&#160;List</span></a></li>
+      <li><a href="namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -93,43 +92,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="namespaceclayer.html">clayer</a>      </li>
-      <li class="navelem"><a class="el" href="namespaceclayer_1_1logger.html">logger</a>      </li>
-      <li class="navelem"><a class="el" href="structclayer_1_1logger_1_1_context_info.html">ContextInfo</a>      </li>
+      <li class="navelem"><a class="el" href="namespacelogger.html">logger</a>      </li>
+      <li class="navelem"><a class="el" href="namespacelogger_1_1hash.html">hash</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">clayer::logger::ContextInfo Struct Reference</div>  </div>
+<div class="title">logger::hash Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<!-- doxytag: class="clayer::logger::ContextInfo" -->
-<p>A plain-old-data container for the fixed code context of a log record. Necessary to propagate context information from the predefined macros. Auxiliary, short-lived class with life-time the duration of the log command.  
- <a href="structclayer_1_1logger_1_1_context_info.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="logger_8h_source.html">logger.h</a>&gt;</code></p>
-
-<p><a href="structclayer_1_1logger_1_1_context_info-members.html">List of all members.</a></p>
+<p>Functionality related to specifying if a component of a log message should influence the hash of the message or not.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclayer_1_1logger_1_1_context_info.html#addfd1be4d8480e922444ddce88ec7d99">file</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclayer_1_1logger_1_1_context_info.html#a0d21d1eddf24edaea0658e558f12be60">fn</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclayer_1_1logger_1_1_context_info.html#aa517a6034aadedffdb19a8f3509bda67">line</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclayer_1_1logger_1_1_context_info.html#a3fb0a3e09becd9800901e4ca3fd41121">level</a></td></tr>
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogger_1_1hash_1_1_flag.html">Flag</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Template class for template overloading hash settings in logger stream operators.  <a href="classlogger_1_1hash_1_1_flag.html#details">More...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classlogger_1_1hash_1_1_flag.html">Flag</a>&lt; true &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelogger_1_1hash.html#a93c39521387cd19774cf89d11d6e3f09">on</a> = <a class="el" href="classlogger_1_1hash_1_1_flag.html">Flag</a>&lt;true&gt;::inst</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classlogger_1_1hash_1_1_flag.html">Flag</a>&lt; false &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelogger_1_1hash.html#afcb366d3598a19fad345a2715264461a">off</a> = <a class="el" href="classlogger_1_1hash_1_1_flag.html">Flag</a>&lt;false&gt;::inst</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>A plain-old-data container for the fixed code context of a log record. Necessary to propagate context information from the predefined macros. Auxiliary, short-lived class with life-time the duration of the log command. </p>
-</div><hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="addfd1be4d8480e922444ddce88ec7d99"></a><!-- doxytag: member="clayer::logger::ContextInfo::file" ref="addfd1be4d8480e922444ddce88ec7d99" args="" -->
+<div class="textblock"><p>Functionality related to specifying if a component of a log message should influence the hash of the message or not. </p>
+</div><hr/><h2>Variable Documentation</h2>
+<a class="anchor" id="afcb366d3598a19fad345a2715264461a"></a><!-- doxytag: member="logger::hash::off" ref="afcb366d3598a19fad345a2715264461a" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* <a class="el" href="structclayer_1_1logger_1_1_context_info.html#addfd1be4d8480e922444ddce88ec7d99">clayer::logger::ContextInfo::file</a></td>
+          <td class="memname">const <a class="el" href="classlogger_1_1hash_1_1_flag.html">Flag</a>&lt;false&gt;&amp; <a class="el" href="namespacelogger_1_1hash.html#afcb366d3598a19fad345a2715264461a">logger::hash::off</a> = <a class="el" href="classlogger_1_1hash_1_1_flag.html">Flag</a>&lt;false&gt;::inst</td>
         </tr>
       </table>
 </div>
@@ -137,12 +134,12 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a0d21d1eddf24edaea0658e558f12be60"></a><!-- doxytag: member="clayer::logger::ContextInfo::fn" ref="a0d21d1eddf24edaea0658e558f12be60" args="" -->
+<a class="anchor" id="a93c39521387cd19774cf89d11d6e3f09"></a><!-- doxytag: member="logger::hash::on" ref="a93c39521387cd19774cf89d11d6e3f09" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* <a class="el" href="structclayer_1_1logger_1_1_context_info.html#a0d21d1eddf24edaea0658e558f12be60">clayer::logger::ContextInfo::fn</a></td>
+          <td class="memname">const <a class="el" href="classlogger_1_1hash_1_1_flag.html">Flag</a>&lt;true&gt;&amp; <a class="el" href="namespacelogger_1_1hash.html#a93c39521387cd19774cf89d11d6e3f09">logger::hash::on</a> = <a class="el" href="classlogger_1_1hash_1_1_flag.html">Flag</a>&lt;true&gt;::inst</td>
         </tr>
       </table>
 </div>
@@ -150,35 +147,6 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a3fb0a3e09becd9800901e4ca3fd41121"></a><!-- doxytag: member="clayer::logger::ContextInfo::level" ref="a3fb0a3e09becd9800901e4ca3fd41121" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="structclayer_1_1logger_1_1_context_info.html#a3fb0a3e09becd9800901e4ca3fd41121">clayer::logger::ContextInfo::level</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa517a6034aadedffdb19a8f3509bda67"></a><!-- doxytag: member="clayer::logger::ContextInfo::line" ref="aa517a6034aadedffdb19a8f3509bda67" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="structclayer_1_1logger_1_1_context_info.html#aa517a6034aadedffdb19a8f3509bda67">clayer::logger::ContextInfo::line</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/travis/build/yogeshg/clayer/include/<a class="el" href="logger_8h_source.html">logger.h</a></li>
-</ul>
 </div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"

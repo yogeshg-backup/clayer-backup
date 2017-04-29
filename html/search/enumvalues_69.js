@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['info',['INFO',['../namespaceclayer_1_1logger.html#ab9fc157583c132900cc2cf6b09a277cca08edab4fbea30f146a3707e1fafebea4',1,'clayer::logger']]]
+  ['info',['INFO',['../namespacelogger.html#a048b3d02d05e0d35add776d90f046542aee60ac495f4eb6180461caa975e30732',1,'logger']]]
 ];

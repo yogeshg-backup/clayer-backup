@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['off',['off',['../namespaceclayer_1_1logger_1_1hash.html#aa6ee4308b6a788627ebcd620b9447249',1,'clayer::logger::hash']]],
-  ['on',['on',['../namespaceclayer_1_1logger_1_1hash.html#a0df45f5b398d452bedf6c5dcdb20d582',1,'clayer::logger::hash']]]
+  ['off',['off',['../namespacelogger_1_1hash.html#afcb366d3598a19fad345a2715264461a',1,'logger::hash']]],
+  ['on',['on',['../namespacelogger_1_1hash.html#a93c39521387cd19774cf89d11d6e3f09',1,'logger::hash']]]
 ];

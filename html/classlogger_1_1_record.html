@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Clayer: clayer::logger::Record&lt; fmt, Stream, props &gt; Class Template Reference</title>
+<title>Clayer: logger::Record&lt; fmt, Stream, props &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -93,9 +93,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="namespaceclayer.html">clayer</a>      </li>
-      <li class="navelem"><a class="el" href="namespaceclayer_1_1logger.html">logger</a>      </li>
-      <li class="navelem"><a class="el" href="classclayer_1_1logger_1_1_record.html">Record</a>      </li>
+      <li class="navelem"><a class="el" href="namespacelogger.html">logger</a>      </li>
+      <li class="navelem"><a class="el" href="classlogger_1_1_record.html">Record</a>      </li>
     </ul>
   </div>
 </div>
@@ -103,55 +102,55 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">clayer::logger::Record&lt; fmt, Stream, props &gt; Class Template Reference</div>  </div>
+<div class="title">logger::Record&lt; fmt, Stream, props &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<!-- doxytag: class="clayer::logger::Record" -->
+<!-- doxytag: class="logger::Record" -->
 <p>A catch-all class for storing a log line record and printing it according to a format.  
- <a href="classclayer_1_1logger_1_1_record.html#details">More...</a></p>
+ <a href="classlogger_1_1_record.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="logger_8h_source.html">logger.h</a>&gt;</code></p>
 
-<p><a href="classclayer_1_1logger_1_1_record-members.html">List of all members.</a></p>
+<p><a href="classlogger_1_1_record-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclayer_1_1logger_1_1_record.html#a84222ed67a87a2a101e2b949012dd626">Record</a> (Stream &amp;s, <a class="el" href="structclayer_1_1logger_1_1_context_info.html">ContextInfo</a> input_info, std::mutex &amp;mutex, Filter filter)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classclayer_1_1logger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a> from relevant information.  <a href="#a84222ed67a87a2a101e2b949012dd626"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclayer_1_1logger_1_1_record.html#aaf04c78e471358d54bf8f4697dfca366">~Record</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the stream mutex and dumps the local buffer to the stream, after applying the final filter. In the class's standard usage, Records live only as rvalues without any names, so that they're destroyed at the end of the log statement.  <a href="#aaf04c78e471358d54bf8f4697dfca366"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogger_1_1_record.html#a2ec8b53a529dcf19a879fd6099ce6740">Record</a> (<a class="el" href="namespacelogger.html#a48e141e62a9ad8dc7fe64588b6bda97b">Stream</a> &amp;s, <a class="el" href="structlogger_1_1_context_info.html">ContextInfo</a> input_info, std::mutex &amp;mutex, Filter filter)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classlogger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a> from relevant information.  <a href="#a2ec8b53a529dcf19a879fd6099ce6740"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogger_1_1_record.html#a9389b2d3497195f0007cb9edbe37ff42">~Record</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the stream mutex and dumps the local buffer to the stream, after applying the final filter. In the class's standard usage, Records live only as rvalues without any names, so that they're destroyed at the end of the log statement.  <a href="#a9389b2d3497195f0007cb9edbe37ff42"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;Streamable S&gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classclayer_1_1logger_1_1_record.html">Record</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classclayer_1_1logger_1_1_record.html#aa7c79796e735a64438d88eb7f5ad6482">operator&lt;&lt;</a> (const S &amp;s)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream an object to the local buffer. Accepts anything a stringstream would accept. Also modifies the hash identifier if the option is enabled.  <a href="#aa7c79796e735a64438d88eb7f5ad6482"></a><br/></td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classlogger_1_1_record.html">Record</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlogger_1_1_record.html#ad890cf6da52eb9cc6d95be3b1715b1cf">operator&lt;&lt;</a> (const S &amp;s)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream an object to the local buffer. Accepts anything a stringstream would accept. Also modifies the hash identifier if the option is enabled.  <a href="#ad890cf6da52eb9cc6d95be3b1715b1cf"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;bool Val&gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classclayer_1_1logger_1_1_record.html">Record</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classclayer_1_1logger_1_1_record.html#a6f618f2f52c6401b6d55f2e218431593">operator&lt;&lt;</a> (const <a class="el" href="classclayer_1_1logger_1_1hash_1_1_flag.html">hash::Flag</a>&lt; Val &gt; &amp;s)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the flag that determines whether or not subsequent objects to be streamed should influence the hash or not. Similar to std::hex.  <a href="#a6f618f2f52c6401b6d55f2e218431593"></a><br/></td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classlogger_1_1_record.html">Record</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlogger_1_1_record.html#ad9217756eeaf81384ac4895b64892623">operator&lt;&lt;</a> (const <a class="el" href="classlogger_1_1hash_1_1_flag.html">hash::Flag</a>&lt; Val &gt; &amp;s)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the flag that determines whether or not subsequent objects to be streamed should influence the hash or not. Similar to std::hex.  <a href="#ad9217756eeaf81384ac4895b64892623"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><h3>template&lt;const char * fmt, typename Stream, Prop&lt; Stream &gt;... props&gt;<br/>
-class clayer::logger::Record&lt; fmt, Stream, props &gt;</h3>
+class logger::Record&lt; fmt, Stream, props &gt;</h3>
 
 <p>A catch-all class for storing a log line record and printing it according to a format. </p>
 <p>The cornerstone of the logging library. This class takes contextual information about a log call, along with auxiliary structures like a mutex and a filter, and provides a way to stream message data to the log. When its time comes (at the end of the logging command, if used properly), it'll flush its local buffer into the stream passed to it.</p>
-<dl class="remark"><dt><b>Remarks:</b></dt><dd>This hints at why Prop must be a type alias instead of a concept. <a class="el" href="classclayer_1_1logger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a> takes in instances of Prop as template parameters, and there's no way to take in instances of variable types as template parameters (no template for template parameters) as of yet (If Prop were a concept, props would have to be a list of types). A similar problem necessitates puting Stream as an explicit template parameter. This would be resolved by a proposal approved for C++17 to be implemented in GCC 7 [1].</dd></dl>
+<dl class="remark"><dt><b>Remarks:</b></dt><dd>This hints at why Prop must be a type alias instead of a concept. <a class="el" href="classlogger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a> takes in instances of Prop as template parameters, and there's no way to take in instances of variable types as template parameters (no template for template parameters) as of yet (If Prop were a concept, props would have to be a list of types). A similar problem necessitates puting Stream as an explicit template parameter. This would be resolved by a proposal approved for C++17 to be implemented in GCC 7 [1].</dd></dl>
 <p>[1] www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0127r1.html </p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a84222ed67a87a2a101e2b949012dd626"></a><!-- doxytag: member="clayer::logger::Record::Record" ref="a84222ed67a87a2a101e2b949012dd626" args="(Stream &amp;s, ContextInfo input_info, std::mutex &amp;mutex, Filter filter)" -->
+<a class="anchor" id="a2ec8b53a529dcf19a879fd6099ce6740"></a><!-- doxytag: member="logger::Record::Record" ref="a2ec8b53a529dcf19a879fd6099ce6740" args="(Stream &amp;s, ContextInfo input_info, std::mutex &amp;mutex, Filter filter)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;const char * fmt, typename Stream , Prop&lt; Stream &gt;... props&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classclayer_1_1logger_1_1_record.html">clayer::logger::Record</a>&lt; fmt, Stream, props &gt;::<a class="el" href="classclayer_1_1logger_1_1_record.html">Record</a> </td>
+          <td class="memname"><a class="el" href="classlogger_1_1_record.html">logger::Record</a>&lt; fmt, <a class="el" href="namespacelogger.html#a48e141e62a9ad8dc7fe64588b6bda97b">Stream</a>, props &gt;::<a class="el" href="classlogger_1_1_record.html">Record</a> </td>
           <td>(</td>
-          <td class="paramtype">Stream &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelogger.html#a48e141e62a9ad8dc7fe64588b6bda97b">Stream</a> &amp;&#160;</td>
           <td class="paramname"><em>s</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structclayer_1_1logger_1_1_context_info.html">ContextInfo</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structlogger_1_1_context_info.html">ContextInfo</a>&#160;</td>
           <td class="paramname"><em>input_info</em>, </td>
         </tr>
         <tr>
@@ -175,7 +174,7 @@ template&lt;const char * fmt, typename Stream , Prop&lt; Stream &gt;... props&gt
 </div>
 <div class="memdoc">
 
-<p>Constructs a <a class="el" href="classclayer_1_1logger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a> from relevant information. </p>
+<p>Constructs a <a class="el" href="classlogger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a> from relevant information. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">s</td><td>the destination to which to stream the record output. </td></tr>
@@ -188,14 +187,14 @@ template&lt;const char * fmt, typename Stream , Prop&lt; Stream &gt;... props&gt
 
 </div>
 </div>
-<a class="anchor" id="aaf04c78e471358d54bf8f4697dfca366"></a><!-- doxytag: member="clayer::logger::Record::~Record" ref="aaf04c78e471358d54bf8f4697dfca366" args="()" -->
+<a class="anchor" id="a9389b2d3497195f0007cb9edbe37ff42"></a><!-- doxytag: member="logger::Record::~Record" ref="a9389b2d3497195f0007cb9edbe37ff42" args="()" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;const char * fmt, typename Stream , Prop&lt; Stream &gt;... props&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classclayer_1_1logger_1_1_record.html">clayer::logger::Record</a>&lt; fmt, Stream, props &gt;::~<a class="el" href="classclayer_1_1logger_1_1_record.html">Record</a> </td>
+          <td class="memname"><a class="el" href="classlogger_1_1_record.html">logger::Record</a>&lt; fmt, <a class="el" href="namespacelogger.html#a48e141e62a9ad8dc7fe64588b6bda97b">Stream</a>, props &gt;::~<a class="el" href="classlogger_1_1_record.html">Record</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [inline]</code></td>
@@ -209,7 +208,7 @@ template&lt;const char * fmt, typename Stream , Prop&lt; Stream &gt;... props&gt
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="aa7c79796e735a64438d88eb7f5ad6482"></a><!-- doxytag: member="clayer::logger::Record::operator&lt;&lt;" ref="aa7c79796e735a64438d88eb7f5ad6482" args="(const S &amp;s)" -->
+<a class="anchor" id="ad890cf6da52eb9cc6d95be3b1715b1cf"></a><!-- doxytag: member="logger::Record::operator&lt;&lt;" ref="ad890cf6da52eb9cc6d95be3b1715b1cf" args="(const S &amp;s)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -218,7 +217,7 @@ template&lt;const char * fmt, typename Stream , Prop&lt; Stream &gt;... props&gt
 template&lt;Streamable S&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classclayer_1_1logger_1_1_record.html">Record</a>&amp; <a class="el" href="classclayer_1_1logger_1_1_record.html">clayer::logger::Record</a>&lt; fmt, Stream, props &gt;::operator&lt;&lt; </td>
+          <td class="memname"><a class="el" href="classlogger_1_1_record.html">Record</a>&amp; <a class="el" href="classlogger_1_1_record.html">logger::Record</a>&lt; fmt, <a class="el" href="namespacelogger.html#a48e141e62a9ad8dc7fe64588b6bda97b">Stream</a>, props &gt;::operator&lt;&lt; </td>
           <td>(</td>
           <td class="paramtype">const S &amp;&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
@@ -239,7 +238,7 @@ template&lt;Streamable S&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a6f618f2f52c6401b6d55f2e218431593"></a><!-- doxytag: member="clayer::logger::Record::operator&lt;&lt;" ref="a6f618f2f52c6401b6d55f2e218431593" args="(const hash::Flag&lt; Val &gt; &amp;s)" -->
+<a class="anchor" id="ad9217756eeaf81384ac4895b64892623"></a><!-- doxytag: member="logger::Record::operator&lt;&lt;" ref="ad9217756eeaf81384ac4895b64892623" args="(const hash::Flag&lt; Val &gt; &amp;s)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -248,9 +247,9 @@ template&lt;const char * fmt, typename Stream , Prop&lt; Stream &gt;... props&gt
 template&lt;bool Val&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classclayer_1_1logger_1_1_record.html">Record</a>&amp; <a class="el" href="classclayer_1_1logger_1_1_record.html">clayer::logger::Record</a>&lt; fmt, Stream, props &gt;::operator&lt;&lt; </td>
+          <td class="memname"><a class="el" href="classlogger_1_1_record.html">Record</a>&amp; <a class="el" href="classlogger_1_1_record.html">logger::Record</a>&lt; fmt, <a class="el" href="namespacelogger.html#a48e141e62a9ad8dc7fe64588b6bda97b">Stream</a>, props &gt;::operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classclayer_1_1logger_1_1hash_1_1_flag.html">hash::Flag</a>&lt; Val &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classlogger_1_1hash_1_1_flag.html">hash::Flag</a>&lt; Val &gt; &amp;&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
@@ -261,11 +260,11 @@ template&lt;bool Val&gt; </div>
 <p>Set the flag that determines whether or not subsequent objects to be streamed should influence the hash or not. Similar to std::hex. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>Either <a class="el" href="namespaceclayer_1_1logger_1_1hash.html#a0df45f5b398d452bedf6c5dcdb20d582">hash::on</a> or <a class="el" href="namespaceclayer_1_1logger_1_1hash.html#aa6ee4308b6a788627ebcd620b9447249">hash::off</a>; they're the only instances of types matching this overload.</td></tr>
+    <tr><td class="paramname">s</td><td>Either <a class="el" href="namespacelogger_1_1hash.html#a93c39521387cd19774cf89d11d6e3f09">hash::on</a> or <a class="el" href="namespacelogger_1_1hash.html#afcb366d3598a19fad345a2715264461a">hash::off</a>; they're the only instances of types matching this overload.</td></tr>
   </table>
   </dd>
 </dl>
-<p><a class="el" href="logconfig_8h.html#accad43a85d781d53381cd53a9894b6ae">LOG(DEBUG)</a> &lt;&lt; <a class="el" href="namespaceclayer_1_1logger_1_1hash.html#a0df45f5b398d452bedf6c5dcdb20d582">hash::on</a> &lt;&lt; "Hey"; </p>
+<p><a class="el" href="logconfig_8h.html#accad43a85d781d53381cd53a9894b6ae">LOG(DEBUG)</a> &lt;&lt; <a class="el" href="namespacelogger_1_1hash.html#a93c39521387cd19774cf89d11d6e3f09">hash::on</a> &lt;&lt; "Hey"; </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The same record, for stringing stream commands. </dd></dl>
 
 </div>

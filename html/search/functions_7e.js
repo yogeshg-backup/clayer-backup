@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7erecord',['~Record',['../classclayer_1_1logger_1_1_record.html#aaf04c78e471358d54bf8f4697dfca366',1,'clayer::logger::Record']]]
+  ['_7erecord',['~Record',['../classlogger_1_1_record.html#a9389b2d3497195f0007cb9edbe37ff42',1,'logger::Record']]]
 ];

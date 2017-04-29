@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['notset',['NOTSET',['../namespaceclayer_1_1logger.html#ab9fc157583c132900cc2cf6b09a277cca42914fe1e91570e315815542e3f3a48f',1,'clayer::logger']]]
+  ['notset',['NOTSET',['../namespacelogger.html#a048b3d02d05e0d35add776d90f046542aa50d74714a92bb43f7383ac992d3ac12',1,'logger']]]
 ];

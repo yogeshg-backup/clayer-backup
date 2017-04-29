@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['critical',['CRITICAL',['../namespaceclayer_1_1logger.html#ab9fc157583c132900cc2cf6b09a277cca1d2a422aa93c1489e38cd575e1605790',1,'clayer::logger']]]
+  ['critical',['CRITICAL',['../namespacelogger.html#a048b3d02d05e0d35add776d90f046542a372897726487dc9149666ca0eb924e82',1,'logger']]]
 ];

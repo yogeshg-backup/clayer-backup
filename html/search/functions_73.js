@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['set_5ffilter',['set_filter',['../classclayer_1_1logger_1_1_logger.html#a8ac66bf350565b16cc64985a287b4bf5',1,'clayer::logger::Logger']]]
+  ['set_5ffilter',['set_filter',['../classlogger_1_1_logger.html#ae628f59a856b98c8e4c868d12fbc773a',1,'logger::Logger']]]
 ];

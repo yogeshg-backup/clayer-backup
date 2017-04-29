@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['set_5ffilter',['set_filter',['../classclayer_1_1logger_1_1_logger.html#a8ac66bf350565b16cc64985a287b4bf5',1,'clayer::logger::Logger']]],
-  ['severity',['Severity',['../namespaceclayer_1_1logger.html#ab9fc157583c132900cc2cf6b09a277cc',1,'clayer::logger']]],
+  ['set_5ffilter',['set_filter',['../classlogger_1_1_logger.html#ae628f59a856b98c8e4c868d12fbc773a',1,'logger::Logger']]],
+  ['severity',['Severity',['../namespacelogger.html#a048b3d02d05e0d35add776d90f046542',1,'logger']]],
   ['status',['Status',['../namespacetest.html#a294e330e5d02975586b60909014980ff',1,'test']]],
-  ['stream',['Stream',['../classclayer_1_1logger_1_1_logger.html#a9302f1ba0e49a121f3fce3302922bdd2',1,'clayer::logger::Logger']]],
-  ['streamable',['Streamable',['../namespaceclayer_1_1logger.html#a5b347f101c9fe4ca968c0c21b61d6e44',1,'clayer::logger::Streamable()'],['../namespaceclayer.html#a5e4134cea2e11c8300f93718e196e06e',1,'clayer::Streamable()']]],
+  ['stream',['Stream',['../classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506',1,'logger::Logger::Stream()'],['../namespacelogger.html#a48e141e62a9ad8dc7fe64588b6bda97b',1,'logger::Stream()']]],
+  ['streamable',['Streamable',['../namespacelogger.html#a80233f8eaec1bd67fe2686a6c9edc776',1,'logger::Streamable()'],['../namespaceclayer.html#a5e4134cea2e11c8300f93718e196e06e',1,'clayer::Streamable()']]],
   ['stringref',['StringRef',['../namespaceclayer.html#aa1a0d23ad523777a9592a9507f475b18',1,'clayer']]]
 ];

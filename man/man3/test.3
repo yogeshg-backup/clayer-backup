@@ -42,6 +42,7 @@ Tiny test suite application that associates test procedures with labels and repo
 .br
 \fBprop_stat\fP, prop_msg > \fBTestLogger\fP (std::cout)"
 .br
+.RI "\fICorresponding logger for test output\&. \fP"
 .ti -1c
 .RI "template<Testable F> \fBTest\fP< F > \fBmake\fP (const std::string &desc, const F &test)"
 .br
@@ -53,10 +54,11 @@ Tiny test suite application that associates test procedures with labels and repo
 .ti -1c
 .RI "constexpr const char \fBmin_fmt\fP [] = ')'"
 .br
-.RI "\fIFormat and corresponding logger TestLogger for test output\&. \fP"
+.RI "\fIFormat for test output\&. \fP"
 .ti -1c
 .RI "concept bool \fBTestable\fP"
 .br
+.RI "\fISomething is Testable in the context of our library if it can report success/failure through a function call\&. \fP"
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -96,19 +98,22 @@ A custom Prop that repurposes the info level to report the success status of the
 .PP
 A custom Prop that prints out the fraction of passing tests so far by keeping an internal counter\&. 
 .SS "\fBLogger\fP<std::ostream, NOTSET, \fBmin_fmt\fP, \fBprop_testno\fP, \fBprop_stat\fP, prop_msg> \fBtest::TestLogger\fP (std::cout)"
+.PP
+Corresponding logger for test output\&. 
 .SH "Variable Documentation"
 .PP 
 .SS "constexpr const char \fBtest::min_fmt\fP[] = ')'"
 .PP
-Format and corresponding logger TestLogger for test output\&. 
+Format for test output\&. 
 .SS "concept bool \fBtest::Testable\fP"\fBInitial value:\fP
 .PP
 .nf
  requires (T t) {
-  { t() } -> bool;
   { std::is_convertible<decltype(t()), bool>::value == true };
 }
 .fi
+.PP
+Something is Testable in the context of our library if it can report success/failure through a function call\&. 
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Clayer from the source code\&.

@@ -21,27 +21,27 @@
 
 .in +1c
 .ti -1c
-.RI "struct \fBclayer::logger::ContextInfo\fP"
+.RI "struct \fBlogger::ContextInfo\fP"
 .br
 .RI "\fIA plain-old-data container for the fixed code context of a log record\&. Necessary to propagate context information from the predefined macros\&. Auxiliary, short-lived class with life-time the duration of the log command\&. \fP"
 .ti -1c
-.RI "struct \fBclayer::logger::Line\fP"
+.RI "struct \fBlogger::Line\fP"
 .br
 .RI "\fIA structure representing all the information about a particular logging line\&. Includes contextual and message information\&. \fP"
 .ti -1c
-.RI "class \fBclayer::logger::hash::Flag< Val >\fP"
+.RI "class \fBlogger::hash::Flag< Val >\fP"
 .br
 .RI "\fITemplate class for template overloading hash settings in logger stream operators\&. \fP"
 .ti -1c
-.RI "class \fBclayer::logger::Record< fmt, Stream, props >\fP"
+.RI "class \fBlogger::Record< fmt, Stream, props >\fP"
 .br
 .RI "\fIA catch-all class for storing a log line record and printing it according to a format\&. \fP"
 .ti -1c
-.RI "class \fBclayer::logger::NoRecord\fP"
+.RI "class \fBlogger::NoRecord\fP"
 .br
 .RI "\fIA record that eats and throws away objects streamed to it\&. Used for compile-time filtering\&. Can also be used as a no-op streamer\&. \fP"
 .ti -1c
-.RI "class \fBclayer::logger::Logger< Stream, threshold, fmt, props >\fP"
+.RI "class \fBlogger::Logger< Stream, threshold, fmt, props >\fP"
 .br
 .RI "\fIThe wrapper/aggregator class for logging commands\&. Template-parameterized by format and logging threshold for compile-time configuration\&. \fP"
 .in -1c
@@ -49,13 +49,10 @@
 
 .in +1c
 .ti -1c
-.RI "namespace \fBclayer\fP"
+.RI "namespace \fBlogger\fP"
 .br
 .ti -1c
-.RI "namespace \fBclayer::logger\fP"
-.br
-.ti -1c
-.RI "namespace \fBclayer::logger::hash\fP"
+.RI "namespace \fBlogger::hash\fP"
 .br
 .RI "\fIFunctionality related to specifying if a component of a log message should influence the hash of the message or not\&. \fP"
 .in -1c
@@ -63,23 +60,23 @@
 
 .in +1c
 .ti -1c
-.RI "template<typename Stream > void \fBclayer::logger::prop_msg\fP (Stream &o, const Line &l)"
+.RI "template<typename Stream > void \fBlogger::prop_msg\fP (Stream &o, const Line &l)"
 .br
 .RI "\fIA Prop that prints the message component to a log stream\&. \fP"
 .ti -1c
-.RI "template<typename Stream > void \fBclayer::logger::prop_hash\fP (Stream &o, const Line &l)"
+.RI "template<typename Stream > void \fBlogger::prop_hash\fP (Stream &o, const Line &l)"
 .br
 .RI "\fIA Prop that prints the hash identifier in hexadecimal of a log to a log stream\&. \fP"
 .ti -1c
-.RI "template<typename Stream > void \fBclayer::logger::prop_func\fP (Stream &o, const Line &l)"
+.RI "template<typename Stream > void \fBlogger::prop_func\fP (Stream &o, const Line &l)"
 .br
 .RI "\fIA Prop that prints the function name to a log stream\&. \fP"
 .ti -1c
-.RI "template<typename Stream > void \fBclayer::logger::prop_file\fP (Stream &o, const Line &l)"
+.RI "template<typename Stream > void \fBlogger::prop_file\fP (Stream &o, const Line &l)"
 .br
 .RI "\fIA Prop that prints the filename to a log stream\&. \fP"
 .ti -1c
-.RI "template<typename Stream > void \fBclayer::logger::prop_line\fP (Stream &o, const Line &l)"
+.RI "template<typename Stream > void \fBlogger::prop_line\fP (Stream &o, const Line &l)"
 .br
 .RI "\fIA Prop that prints the line number to a log stream\&. \fP"
 .in -1c
@@ -87,13 +84,18 @@
 
 .in +1c
 .ti -1c
-.RI "const Flag< true > & \fBclayer::logger::hash::on\fP = Flag<true>::inst"
+.RI "concept bool \fBlogger::Stream\fP"
+.br
+.RI "\fIA Stream is something that implements << for strings at the very least\&. More generally it can implement << for any type, but for we require << for strings given the context in a logging library\&. \fP"
+.ti -1c
+.RI "concept bool \fBlogger::Streamable\fP"
+.br
+.RI "\fIReproduced in \fBproperty\&.h\fP, something is Streamable if an ostream can stream it\&. We don't refer to our Stream concept above because practically in our library every Stream forwards to some underlying ostream\&. \fP"
+.ti -1c
+.RI "const Flag< true > & \fBlogger::hash::on\fP = Flag<true>::inst"
 .br
 .ti -1c
-.RI "const Flag< false > & \fBclayer::logger::hash::off\fP = Flag<false>::inst"
-.br
-.ti -1c
-.RI "concept bool \fBclayer::logger::Streamable\fP"
+.RI "const Flag< false > & \fBlogger::hash::off\fP = Flag<false>::inst"
 .br
 .in -1c
 .SH "Author"

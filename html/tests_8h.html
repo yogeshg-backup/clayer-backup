@@ -126,22 +126,24 @@ Enumerations</h2></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename Stream &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetest.html#a0155cb34951b7ebfc94da1ba681387a4">test::prop_testno</a> (Stream &amp;o, const <a class="el" href="structclayer_1_1logger_1_1_line.html">Line</a> &amp;l)</td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetest.html#a0155cb34951b7ebfc94da1ba681387a4">test::prop_testno</a> (Stream &amp;o, const <a class="el" href="structlogger_1_1_line.html">Line</a> &amp;l)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A custom Prop that prints out the fraction of passing tests so far by keeping an internal counter.  <a href="#a0155cb34951b7ebfc94da1ba681387a4"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename Stream &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetest.html#a75bdb4879e8d18435328d4ebad31b543">test::prop_stat</a> (Stream &amp;o, const <a class="el" href="structclayer_1_1logger_1_1_line.html">Line</a> &amp;l)</td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetest.html#a75bdb4879e8d18435328d4ebad31b543">test::prop_stat</a> (Stream &amp;o, const <a class="el" href="structlogger_1_1_line.html">Line</a> &amp;l)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A custom Prop that repurposes the info level to report the success status of the test associated with the log.  <a href="#a75bdb4879e8d18435328d4ebad31b543"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classclayer_1_1logger_1_1_logger.html">Logger</a>&lt; std::ostream, NOTSET, <br class="typebreak"/>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlogger_1_1_logger.html">Logger</a>&lt; std::ostream, NOTSET, <br class="typebreak"/>
 min_fmt, prop_testno, <br class="typebreak"/>
 prop_stat, prop_msg &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetest.html#a0f7850307e63e819f77c0804a7521616">test::TestLogger</a> (std::cout)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Corresponding logger for test output.  <a href="#a0f7850307e63e819f77c0804a7521616"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;Testable F&gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">Test&lt; F &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetest.html#a673e42003089b97ffb89ef5955a482ee">test::make</a> (const std::string &amp;desc, const F &amp;test)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function for creating a test without specifying the procedure type.  <a href="#a673e42003089b97ffb89ef5955a482ee"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">constexpr const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetest.html#ab328a6943b570090775331b68dbfbe43">test::min_fmt</a> [] = &quot;)&quot;</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Format and corresponding logger TestLogger for test output.  <a href="#ab328a6943b570090775331b68dbfbe43"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Format for test output.  <a href="#ab328a6943b570090775331b68dbfbe43"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">concept bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetest.html#a922d91b512b33bc4442a4e35b2cb94f4">test::Testable</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Something is Testable in the context of our library if it can report success/failure through a function call.  <a href="#a922d91b512b33bc4442a4e35b2cb94f4"></a><br/></td></tr>
 </table>
 </div><!-- contents -->
 <!-- window showing the filter options -->

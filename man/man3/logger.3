@@ -1,8 +1,8 @@
-.TH "clayer::logger" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
+.TH "logger" 3 "Sat Apr 29 2017" "Clayer" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-clayer::logger \- 
+logger \- 
 .SH SYNOPSIS
 .br
 .PP
@@ -50,39 +50,39 @@ clayer::logger \-
 
 .in +1c
 .ti -1c
-.RI "template<typename Stream > void \fBprop_level\fP (Stream &o, const \fBLine\fP &l)"
+.RI "template<typename Stream > void \fBprop_level\fP (\fBStream\fP &o, const \fBLine\fP &l)"
 .br
 .RI "\fIA Prop that prints out a string corresponding to the severity level for a given \fBLine\fP\&. \fP"
 .ti -1c
-.RI "template<typename Stream > void \fBprop_time\fP (Stream &o, const \fBLine\fP &l)"
+.RI "template<typename Stream > void \fBprop_time\fP (\fBStream\fP &o, const \fBLine\fP &l)"
 .br
 .RI "\fIA Prop that prints the current time to the log stream\&. \fP"
 .ti -1c
-.RI "template<typename Stream > void \fBprop_date\fP (Stream &o, const \fBLine\fP &l)"
+.RI "template<typename Stream > void \fBprop_date\fP (\fBStream\fP &o, const \fBLine\fP &l)"
 .br
 .RI "\fIA Prop that prints the current date to the log stream\&. \fP"
 .ti -1c
-.RI "template<typename Stream > void \fBprop_thread\fP (Stream &o, const \fBLine\fP &l)"
+.RI "template<typename Stream > void \fBprop_thread\fP (\fBStream\fP &o, const \fBLine\fP &l)"
 .br
 .RI "\fIA Prop that prints an identifier for the current thread to the log stream\&. \fP"
 .ti -1c
-.RI "template<typename Stream > void \fBprop_msg\fP (Stream &o, const \fBLine\fP &l)"
+.RI "template<typename Stream > void \fBprop_msg\fP (\fBStream\fP &o, const \fBLine\fP &l)"
 .br
 .RI "\fIA Prop that prints the message component to a log stream\&. \fP"
 .ti -1c
-.RI "template<typename Stream > void \fBprop_hash\fP (Stream &o, const \fBLine\fP &l)"
+.RI "template<typename Stream > void \fBprop_hash\fP (\fBStream\fP &o, const \fBLine\fP &l)"
 .br
 .RI "\fIA Prop that prints the hash identifier in hexadecimal of a log to a log stream\&. \fP"
 .ti -1c
-.RI "template<typename Stream > void \fBprop_func\fP (Stream &o, const \fBLine\fP &l)"
+.RI "template<typename Stream > void \fBprop_func\fP (\fBStream\fP &o, const \fBLine\fP &l)"
 .br
 .RI "\fIA Prop that prints the function name to a log stream\&. \fP"
 .ti -1c
-.RI "template<typename Stream > void \fBprop_file\fP (Stream &o, const \fBLine\fP &l)"
+.RI "template<typename Stream > void \fBprop_file\fP (\fBStream\fP &o, const \fBLine\fP &l)"
 .br
 .RI "\fIA Prop that prints the filename to a log stream\&. \fP"
 .ti -1c
-.RI "template<typename Stream > void \fBprop_line\fP (Stream &o, const \fBLine\fP &l)"
+.RI "template<typename Stream > void \fBprop_line\fP (\fBStream\fP &o, const \fBLine\fP &l)"
 .br
 .RI "\fIA Prop that prints the line number to a log stream\&. \fP"
 .in -1c
@@ -97,15 +97,25 @@ clayer::logger \-
 .RI "constexpr const char \fBbasic_fmt\fP [] = '%'"
 .br
 .ti -1c
+.RI "concept bool \fBStream\fP"
+.br
+.RI "\fIA Stream is something that implements << for strings at the very least\&. More generally it can implement << for any type, but for we require << for strings given the context in a logging library\&. \fP"
+.ti -1c
 .RI "concept bool \fBStreamable\fP"
 .br
+.RI "\fIReproduced in \fBproperty\&.h\fP, something is Streamable if an ostream can stream it\&. We don't refer to our Stream concept above because practically in our library every Stream forwards to some underlying ostream\&. \fP"
 .ti -1c
 .RI "constexpr const char \fBmy_format\fP [] = '[%] %[%:%(%:%)]: [%]'"
 .br
 .in -1c
+.SH "Detailed Description"
+.PP 
+Additional sample definitions, class instantiations, and macro definitions for easier use\&.
+.PP
+Class and function definitions to facilitate logging and formatting\&. 
 .SH "Enumeration Type Documentation"
 .PP 
-.SS "enum \fBclayer::logger::Severity\fP"
+.SS "enum \fBlogger::Severity\fP"
 .PP
 Sample severity levels for logging commands and classes\&. 
 .PP
@@ -126,47 +136,58 @@ Sample severity levels for logging commands and classes\&.
 
 .SH "Function Documentation"
 .PP 
-.SS "template<typename Stream > void \fBclayer::logger::prop_date\fP (Stream &o, const Line &l)"
+.SS "template<typename Stream > void \fBlogger::prop_date\fP (Stream &o, const Line &l)"
 .PP
 A Prop that prints the current date to the log stream\&. 
-.SS "template<typename Stream > void \fBclayer::logger::prop_file\fP (Stream &o, const Line &l)"
+.SS "template<typename Stream > void \fBlogger::prop_file\fP (Stream &o, const Line &l)"
 .PP
 A Prop that prints the filename to a log stream\&. 
-.SS "template<typename Stream > void \fBclayer::logger::prop_func\fP (Stream &o, const Line &l)"
+.SS "template<typename Stream > void \fBlogger::prop_func\fP (Stream &o, const Line &l)"
 .PP
 A Prop that prints the function name to a log stream\&. 
-.SS "template<typename Stream > void \fBclayer::logger::prop_hash\fP (Stream &o, const Line &l)"
+.SS "template<typename Stream > void \fBlogger::prop_hash\fP (Stream &o, const Line &l)"
 .PP
 A Prop that prints the hash identifier in hexadecimal of a log to a log stream\&. 
-.SS "template<typename Stream > void \fBclayer::logger::prop_level\fP (Stream &o, const Line &l)"
+.SS "template<typename Stream > void \fBlogger::prop_level\fP (Stream &o, const Line &l)"
 .PP
 A Prop that prints out a string corresponding to the severity level for a given \fBLine\fP\&. 
-.SS "template<typename Stream > void \fBclayer::logger::prop_line\fP (Stream &o, const Line &l)"
+.SS "template<typename Stream > void \fBlogger::prop_line\fP (Stream &o, const Line &l)"
 .PP
 A Prop that prints the line number to a log stream\&. 
-.SS "template<typename Stream > void \fBclayer::logger::prop_msg\fP (Stream &o, const Line &l)"
+.SS "template<typename Stream > void \fBlogger::prop_msg\fP (Stream &o, const Line &l)"
 .PP
 A Prop that prints the message component to a log stream\&. 
-.SS "template<typename Stream > void \fBclayer::logger::prop_thread\fP (Stream &o, const Line &l)"
+.SS "template<typename Stream > void \fBlogger::prop_thread\fP (Stream &o, const Line &l)"
 .PP
 A Prop that prints an identifier for the current thread to the log stream\&. 
-.SS "template<typename Stream > void \fBclayer::logger::prop_time\fP (Stream &o, const Line &l)"
+.SS "template<typename Stream > void \fBlogger::prop_time\fP (Stream &o, const Line &l)"
 .PP
 A Prop that prints the current time to the log stream\&. 
 .SH "Variable Documentation"
 .PP 
-.SS "constexpr const char \fBclayer::logger::basic_fmt\fP[] = '%'"
-.SS "constexpr const char \fBclayer::logger::full_fmt\fP[] = '\\033[1;31m[% %]\\033[0m %[Thread %:%(%:%)]: [%] [%]'"
+.SS "constexpr const char \fBlogger::basic_fmt\fP[] = '%'"
+.SS "constexpr const char \fBlogger::full_fmt\fP[] = '\\033[1;31m[% %]\\033[0m %[Thread %:%(%:%)]: [%] [%]'"
 .PP
 Sample format strings: one with placeholders for several Props, the other for just a single Prop\&. 
-.SS "constexpr const char \fBclayer::logger::my_format\fP[] = '[%] %[%:%(%:%)]: [%]'"
-.SS "concept bool \fBclayer::logger::Streamable\fP"\fBInitial value:\fP
+.SS "constexpr const char \fBlogger::my_format\fP[] = '[%] %[%:%(%:%)]: [%]'"
+.SS "concept bool \fBlogger::Stream\fP"\fBInitial value:\fP
 .PP
 .nf
- requires (std::ostream s, T t) {
-  { s << t } -> std::ostream&;
+ requires(T o, std::string s) {
+  { o << s } -> T &;
 }
 .fi
+.PP
+A Stream is something that implements << for strings at the very least\&. More generally it can implement << for any type, but for we require << for strings given the context in a logging library\&. 
+.SS "concept bool \fBlogger::Streamable\fP"\fBInitial value:\fP
+.PP
+.nf
+ requires(T o, std::ostream &s) {
+  { s << o } -> std::ostream &;
+}
+.fi
+.PP
+Reproduced in \fBproperty\&.h\fP, something is Streamable if an ostream can stream it\&. We don't refer to our Stream concept above because practically in our library every Stream forwards to some underlying ostream\&. 
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Clayer from the source code\&.

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Clayer: clayer::logger::Logger&lt; Stream, threshold, fmt, props &gt; Class Template Reference</title>
+<title>Clayer: logger::Logger&lt; Stream, threshold, fmt, props &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -93,9 +93,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="namespaceclayer.html">clayer</a>      </li>
-      <li class="navelem"><a class="el" href="namespaceclayer_1_1logger.html">logger</a>      </li>
-      <li class="navelem"><a class="el" href="classclayer_1_1logger_1_1_logger.html">Logger</a>      </li>
+      <li class="navelem"><a class="el" href="namespacelogger.html">logger</a>      </li>
+      <li class="navelem"><a class="el" href="classlogger_1_1_logger.html">Logger</a>      </li>
     </ul>
   </div>
 </div>
@@ -104,46 +103,48 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">clayer::logger::Logger&lt; Stream, threshold, fmt, props &gt; Class Template Reference</div>  </div>
+<div class="title">logger::Logger&lt; Stream, threshold, fmt, props &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<!-- doxytag: class="clayer::logger::Logger" -->
+<!-- doxytag: class="logger::Logger" -->
 <p>The wrapper/aggregator class for logging commands. Template-parameterized by format and logging threshold for compile-time configuration.  
- <a href="classclayer_1_1logger_1_1_logger.html#details">More...</a></p>
+ <a href="classlogger_1_1_logger.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="logger_8h_source.html">logger.h</a>&gt;</code></p>
 
-<p><a href="classclayer_1_1logger_1_1_logger-members.html">List of all members.</a></p>
+<p><a href="classlogger_1_1_logger-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclayer_1_1logger_1_1_logger.html#a672f99b1b2de47bc4a148147112bed59">Logger</a> (<a class="el" href="classclayer_1_1logger_1_1_logger.html#a9302f1ba0e49a121f3fce3302922bdd2">Stream</a> &amp;s)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a logger from a stream.  <a href="#a672f99b1b2de47bc4a148147112bed59"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclayer_1_1logger_1_1_logger.html#a8ac66bf350565b16cc64985a287b4bf5">set_filter</a> (Filter f)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the filter for the log.  <a href="#a8ac66bf350565b16cc64985a287b4bf5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogger_1_1_logger.html#ad46a993413fda6fe96665891a709126b">Logger</a> (<a class="el" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a> &amp;s)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a logger from a stream.  <a href="#ad46a993413fda6fe96665891a709126b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogger_1_1_logger.html#ae628f59a856b98c8e4c868d12fbc773a">set_filter</a> (Filter f)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the filter for the log.  <a href="#ae628f59a856b98c8e4c868d12fbc773a"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;unsigned int N, typename std::enable_if&lt; N &gt;  = threshold&gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">::type props&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classclayer_1_1logger_1_1_logger.html#aeb3a473efabd072b0a1c5d2a0a03f2c8">log</a> (<a class="el" href="structclayer_1_1logger_1_1_context_info.html">ContextInfo</a> info)</td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">::type props&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlogger_1_1_logger.html#aaed129924aa987c5a85b19693fbbb2cf">log</a> (<a class="el" href="structlogger_1_1_context_info.html">ContextInfo</a> info)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclayer_1_1logger_1_1_logger.html#a9302f1ba0e49a121f3fce3302922bdd2">Stream</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename Stream, int threshold, const char * fmt, Prop&lt; Stream &gt;... props&gt;<br/>
-class clayer::logger::Logger&lt; Stream, threshold, fmt, props &gt;</h3>
+class logger::Logger&lt; Stream, threshold, fmt, props &gt;</h3>
 
 <p>The wrapper/aggregator class for logging commands. Template-parameterized by format and logging threshold for compile-time configuration. </p>
-<dl class="remark"><dt><b>Remarks:</b></dt><dd>As with the <a class="el" href="classclayer_1_1logger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a> definition, Prop is a fixed type alias as auto template parameters aren't possible in GCC yet. </dd></dl>
+<dl class="remark"><dt><b>Remarks:</b></dt><dd>As with the <a class="el" href="classlogger_1_1_record.html" title="A catch-all class for storing a log line record and printing it according to a format.">Record</a> definition, Prop is a fixed type alias as auto template parameters aren't possible in GCC yet.</dd>
+<dd>
+We tried to pinpoint a concept for Stream but failed because the only reasonable description for Stream would be that it implements the stream operator, so it might make sense to require a Stream to be able to &lt;&lt; a a string, but even then some streams may only work on particular types, for example a bit or number stream. </dd></dl>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a672f99b1b2de47bc4a148147112bed59"></a><!-- doxytag: member="clayer::logger::Logger::Logger" ref="a672f99b1b2de47bc4a148147112bed59" args="(Stream &amp;s)" -->
+<a class="anchor" id="ad46a993413fda6fe96665891a709126b"></a><!-- doxytag: member="logger::Logger::Logger" ref="ad46a993413fda6fe96665891a709126b" args="(Stream &amp;s)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename Stream, int threshold, const char * fmt, Prop&lt; Stream &gt;... props&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classclayer_1_1logger_1_1_logger.html">clayer::logger::Logger</a>&lt; <a class="el" href="classclayer_1_1logger_1_1_logger.html#a9302f1ba0e49a121f3fce3302922bdd2">Stream</a>, threshold, fmt, props &gt;::<a class="el" href="classclayer_1_1logger_1_1_logger.html">Logger</a> </td>
+          <td class="memname"><a class="el" href="classlogger_1_1_logger.html">logger::Logger</a>&lt; <a class="el" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a>, threshold, fmt, props &gt;::<a class="el" href="classlogger_1_1_logger.html">Logger</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classclayer_1_1logger_1_1_logger.html#a9302f1ba0e49a121f3fce3302922bdd2">Stream</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a> &amp;&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
@@ -162,7 +163,7 @@ template&lt;typename Stream, int threshold, const char * fmt, Prop&lt; Stream &g
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="aeb3a473efabd072b0a1c5d2a0a03f2c8"></a><!-- doxytag: member="clayer::logger::Logger::log" ref="aeb3a473efabd072b0a1c5d2a0a03f2c8" args="(ContextInfo info)" -->
+<a class="anchor" id="aaed129924aa987c5a85b19693fbbb2cf"></a><!-- doxytag: member="logger::Logger::log" ref="aaed129924aa987c5a85b19693fbbb2cf" args="(ContextInfo info)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -171,9 +172,9 @@ template&lt;typename Stream, int threshold, const char * fmt, Prop&lt; Stream &g
 template&lt;unsigned int N, typename std::enable_if&lt; N &gt;  = threshold&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">::type props <a class="el" href="classclayer_1_1logger_1_1_logger.html">clayer::logger::Logger</a>&lt; <a class="el" href="classclayer_1_1logger_1_1_logger.html#a9302f1ba0e49a121f3fce3302922bdd2">Stream</a>, threshold, fmt, props &gt;::<a class="el" href="classclayer_1_1logger_1_1_logger.html#aeb3a473efabd072b0a1c5d2a0a03f2c8">log</a> </td>
+          <td class="memname">::type props <a class="el" href="classlogger_1_1_logger.html">logger::Logger</a>&lt; <a class="el" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a>, threshold, fmt, props &gt;::<a class="el" href="classlogger_1_1_logger.html#aaed129924aa987c5a85b19693fbbb2cf">log</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structclayer_1_1logger_1_1_context_info.html">ContextInfo</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structlogger_1_1_context_info.html">ContextInfo</a>&#160;</td>
           <td class="paramname"><em>info</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
@@ -183,14 +184,14 @@ template&lt;unsigned int N, typename std::enable_if&lt; N &gt;  = threshold&gt; 
 
 </div>
 </div>
-<a class="anchor" id="a8ac66bf350565b16cc64985a287b4bf5"></a><!-- doxytag: member="clayer::logger::Logger::set_filter" ref="a8ac66bf350565b16cc64985a287b4bf5" args="(Filter f)" -->
+<a class="anchor" id="ae628f59a856b98c8e4c868d12fbc773a"></a><!-- doxytag: member="logger::Logger::set_filter" ref="ae628f59a856b98c8e4c868d12fbc773a" args="(Filter f)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename Stream, int threshold, const char * fmt, Prop&lt; Stream &gt;... props&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classclayer_1_1logger_1_1_logger.html">clayer::logger::Logger</a>&lt; <a class="el" href="classclayer_1_1logger_1_1_logger.html#a9302f1ba0e49a121f3fce3302922bdd2">Stream</a>, threshold, fmt, props &gt;::<a class="el" href="classclayer_1_1logger_1_1_logger.html#a8ac66bf350565b16cc64985a287b4bf5">set_filter</a> </td>
+          <td class="memname">void <a class="el" href="classlogger_1_1_logger.html">logger::Logger</a>&lt; <a class="el" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a>, threshold, fmt, props &gt;::<a class="el" href="classlogger_1_1_logger.html#ae628f59a856b98c8e4c868d12fbc773a">set_filter</a> </td>
           <td>(</td>
           <td class="paramtype">Filter&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
@@ -203,7 +204,7 @@ template&lt;typename Stream, int threshold, const char * fmt, Prop&lt; Stream &g
 <p>Set the filter for the log. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">A</td><td>boolean function taking in a reference to a <a class="el" href="structclayer_1_1logger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> and outputting a boolean, so it can modify and report whether to finally output or not. </td></tr>
+    <tr><td class="paramname">A</td><td>boolean function taking in a reference to a <a class="el" href="structlogger_1_1_line.html" title="A structure representing all the information about a particular logging line. Includes contextual and...">Line</a> and outputting a boolean, so it can modify and report whether to finally output or not. </td></tr>
   </table>
   </dd>
 </dl>
@@ -211,14 +212,14 @@ template&lt;typename Stream, int threshold, const char * fmt, Prop&lt; Stream &g
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a9302f1ba0e49a121f3fce3302922bdd2"></a><!-- doxytag: member="clayer::logger::Logger::Stream" ref="a9302f1ba0e49a121f3fce3302922bdd2" args="" -->
+<a class="anchor" id="a9ac8c3c9c479deb76430570d262ff506"></a><!-- doxytag: member="logger::Logger::Stream" ref="a9ac8c3c9c479deb76430570d262ff506" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename Stream, int threshold, const char * fmt, Prop&lt; Stream &gt;... props&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">::type <a class="el" href="classclayer_1_1logger_1_1_logger.html">clayer::logger::Logger</a>&lt; <a class="el" href="classclayer_1_1logger_1_1_logger.html#a9302f1ba0e49a121f3fce3302922bdd2">Stream</a>, threshold, fmt, props &gt;::<a class="el" href="classclayer_1_1logger_1_1_logger.html#a9302f1ba0e49a121f3fce3302922bdd2">Stream</a></td>
+          <td class="memname">::type <a class="el" href="classlogger_1_1_logger.html">logger::Logger</a>&lt; <a class="el" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a>, threshold, fmt, props &gt;::<a class="el" href="classlogger_1_1_logger.html#a9ac8c3c9c479deb76430570d262ff506">Stream</a></td>
         </tr>
       </table>
 </div>
