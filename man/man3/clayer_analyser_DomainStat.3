@@ -15,7 +15,7 @@ This is a class that provides querying functionalities on \fBLogRecord\fP object
 
 .in +1c
 .ti -1c
-.RI "\fBDomainStat\fP ()=default"
+.RI "\fBDomainStat\fP ()"
 .br
 .RI "\fIThis is the default constructor that does nothing\&. \fP"
 .ti -1c
@@ -33,7 +33,7 @@ This is a class that provides querying functionalities on \fBLogRecord\fP object
 .ti -1c
 .RI "std::map< std::string, 
 .br
-\fButil::VectorStat\fP< float > > \fBdomain_stats\fP"
+util::VectorStat< float > > \fBdomain_stats\fP"
 .br
 .RI "\fIThis is a map that maps from a certain log_property typed string to a VectorStat object containing floats\&. We maintain this map to keep the result of the analysis\&. \fP"
 .in -1c
@@ -44,16 +44,12 @@ This is a class that provides querying functionalities on \fBLogRecord\fP object
 This is a class that provides querying functionalities on \fBLogRecord\fP objects\&. We construct a \fBDomainStat\fP object based on a series of log_properties, taken in template arguments and group by the \fBLogRecord\fP objects based on such log_properties\&. 
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "template<log_properties\&.\&.\&. p> \fBclayer::analyser::DomainStat\fP< p >::\fBDomainStat\fP ()\fC [default]\fP"
-
+.SS "template<log_properties\&.\&.\&. p> \fBclayer::analyser::DomainStat\fP< p >::\fBDomainStat\fP ()"
 .PP
 This is the default constructor that does nothing\&. 
 .SS "template<log_properties\&.\&.\&. p> \fBclayer::analyser::DomainStat\fP< p >::\fBDomainStat\fP (std::vector< \fBLogRecord\fP >records, floatprecision = \fC1\&.0\fP, intoutlier_count = \fC10\fP, floatoutlier_fraction = \fC0\&.01\fP)\fC [inline]\fP"
-
 .PP
-This constuctor takes in a vector of \fBLogRecord\fP objects to perform analysis on, given the precision of the statistical analyser, the maximum count of ourliers that it identifies and the corresponding proportion of the ourliers\&. 
-.PP
-\fBParameters:\fP
+This constuctor takes in a vector of \fBLogRecord\fP objects to perform analysis on, given the precision of the statistical analyser, the maximum count of ourliers that it identifies and the corresponding proportion of the ourliers\&. \fBParameters:\fP
 .RS 4
 \fIrecords\fP A vector containing \fBLogRecord\fP objects that \fBDomainStat\fP class will perform analysis on\&.
 .br
@@ -67,12 +63,9 @@ This constuctor takes in a vector of \fBLogRecord\fP objects to perform analysis
 
 .SH "Member Function Documentation"
 .PP 
-.SS "template<log_properties\&.\&.\&. p> std::ostream& \fBclayer::analyser::DomainStat\fP< p >::to_string (std::ostream &s)\fC [inline]\fP"
-
+.SS "template<log_properties\&.\&.\&. p> std::ostream& \fBclayer::analyser::DomainStat\fP< p >::\fBto_string\fP (std::ostream &s)\fC [inline]\fP"
 .PP
-A helper function that prints a \fBDomainStat\fP objects to the output ostream\&. 
-.PP
-\fBParameters:\fP
+A helper function that prints a \fBDomainStat\fP objects to the output ostream\&. \fBParameters:\fP
 .RS 4
 \fIs\fP A std::ostream object that \fBDomainStat\fP will print to\&.
 .RE
@@ -85,8 +78,7 @@ std::ostream object that the function takes in\&.
 
 .SH "Member Data Documentation"
 .PP 
-.SS "template<log_properties\&.\&.\&. p> std::map<std::string, \fButil::VectorStat\fP<float> > \fBclayer::analyser::DomainStat\fP< p >::domain_stats"
-
+.SS "template<log_properties\&.\&.\&. p> std::map<std::string, util::VectorStat<float> > \fBclayer::analyser::DomainStat\fP< p >::\fBdomain_stats\fP"
 .PP
 This is a map that maps from a certain log_property typed string to a VectorStat object containing floats\&. We maintain this map to keep the result of the analysis\&. 
 
